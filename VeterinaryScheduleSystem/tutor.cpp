@@ -1,36 +1,47 @@
-#ifndef CONSULTA_H
-#define CONSULTA_H
+#include "tutor.h"
 
-#include <string>
-#include "animal.h"
+// Construtor
+Tutor::Tutor(const std::string& nome, const std::string& cpf, const std::string& telefone, const std::string& endereco)
+    : nome(nome), cpf(cpf), telefone(telefone), endereco(endereco) {}
 
-class Consulta {
-private:
-    std::string data;
-    std::string horario;
-    std::string motivo;
-    std::string veterinario;
-    Animal* animal;
-    std::string status;
+// Getters e Setters
+std::string Tutor::getNome() const {
+    return nome;
+}
 
-public:
-    // Constructors
-    Consulta(const std::string& data, const std::string& horario, const std::string& motivo,
-             const std::string& veterinario, Animal* animal, const std::string& status);
+void Tutor::setNome(const std::string& nome) {
+    this->nome = nome;
+}
 
-    // Getters and Setters
-    std::string getData() const;
-    void setData(const std::string& data);
-    std::string getHorario() const;
-    void setHorario(const std::string& horario);
-    std::string getMotivo() const;
-    void setMotivo(const std::string& motivo);
-    std::string getVeterinario() const;
-    void setVeterinario(const std::string& veterinario);
-    Animal* getAnimal() const;
-    void setAnimal(Animal* animal);
-    std::string getStatus() const;
-    void setStatus(const std::string& status);
-};
+std::string Tutor::getCPF() const {
+    return cpf;
+}
 
-#endif // CONSULTA_H
+void Tutor::setCPF(const std::string& cpf) {
+    this->cpf = cpf;
+}
+
+std::string Tutor::getTelefone() const {
+    return telefone;
+}
+
+void Tutor::setTelefone(const std::string& telefone) {
+    this->telefone = telefone;
+}
+
+std::string Tutor::getEndereco() const {
+    return endereco;
+}
+
+void Tutor::setEndereco(const std::string& endereco) {
+    this->endereco = endereco;
+}
+
+// Gerenciamento de Animais
+void Tutor::adicionarAnimal(const Animal& animal) {
+    animais.push_back(animal);
+}
+
+std::vector<Animal> Tutor::getAnimais() const {
+    return animais;
+}

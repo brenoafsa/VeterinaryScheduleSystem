@@ -1,5 +1,6 @@
 #include "sistema.h"
 #include <iostream>
+using namespace std;
 
 int main() {
     // Initialize the system
@@ -33,19 +34,19 @@ int main() {
     sistema.agendarConsulta(consulta2);
 
     // Example: Retrieve appointments by date
-    std::cout << "Consultas para 2025-01-20:\n";
+    cout << "Consultas para 2025-01-20:\n";
     auto consultasPorData = sistema.filtrarConsultasPorData("2025-01-20");
     for (const auto& consulta : consultasPorData) {
-        std::cout << " - Animal: " << consulta.getAnimal()->getNome()
+        cout << " - Animal: " << consulta.getAnimal()->getNome()
         << ", Veterinário: " << consulta.getVeterinario()
         << ", Horário: " << consulta.getHorario() << '\n';
     }
 
     // Example: Display available times for vet1
-    std::cout << "\nHorários livres para " << vet1.getNome() << " em 2025-01-20:\n";
+    cout << "\nHorários livres para " << vet1.getNome() << " em 2025-01-20:\n";
     auto horariosLivres = sistema.obterHorariosLivres(vet1, "2025-01-20");
     for (const auto& horario : horariosLivres) {
-        std::cout << " - " << horario << '\n';
+        cout << " - " << horario << '\n';
     }
 
     return 0;
