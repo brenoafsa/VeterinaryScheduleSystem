@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include <QMessageBox>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -15,6 +16,9 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_BotaoDeEntrada_clicked()
 {
+    QString nome = ui->txt_nome->text();
+    QString senha = ui->txt_senha->text();
 
+    QMessageBox::information(this,"dados inseridos","usuário: "+nome+"\nsenha: :"+senha);
 }
 
