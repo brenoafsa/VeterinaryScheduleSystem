@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>agendamento</class>
- <widget class="QDialog" name="agendamento">
+ <class>menu</class>
+ <widget class="QDialog" name="menu">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1302</width>
-    <height>619</height>
+    <width>400</width>
+    <height>300</height>
    </rect>
   </property>
   <property name="windowTitle">

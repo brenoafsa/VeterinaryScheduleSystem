@@ -14,6 +14,7 @@ SOURCES += \
     consulta.cpp \
     main.cpp \
     mainwindow.cpp \
+    menu.cpp \
     sistema.cpp \
     tutor.cpp \
     veterinario.cpp
@@ -24,13 +25,15 @@ HEADERS += \
     consulta.h \
     database.h \
     mainwindow.h \
+    menu.h \
     sistema.h \
     tutor.h \
     veterinario.h
 
 FORMS += \
     agendamento.ui \
-    mainwindow.ui
+    mainwindow.ui \
+    menu.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
