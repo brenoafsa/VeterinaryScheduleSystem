@@ -14,7 +14,7 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="NomeInicial">
     <property name="geometry">
      <rect>
       <x>450</x>
@@ -32,7 +32,7 @@
      <string>Sistema Veterinário</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="BotaoDeEntrada">
     <property name="geometry">
      <rect>
       <x>540</x>
