@@ -309,8 +309,8 @@ color: #ffffff</string>
    <widget class="QWidget" name="verticalLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>240</x>
-      <y>90</y>
+      <x>220</x>
+      <y>80</y>
       <width>531</width>
       <height>301</height>
      </rect>
@@ -348,7 +348,10 @@ QLineEdit:placeholder {
     font-style: italic;
 }
 
-</string>
+; background-color: #ffffff</string>
+       </property>
+       <property name="placeholderText">
+        <string>Nome do Pet</string>
        </property>
       </widget>
      </item>
@@ -378,7 +381,10 @@ QLineEdit:placeholder {
     font-style: italic;
 }
 
-</string>
+; background-color: #ffffff</string>
+       </property>
+       <property name="placeholderText">
+        <string>Nome do Tutor</string>
        </property>
       </widget>
      </item>
@@ -408,7 +414,10 @@ QLineEdit:placeholder {
     font-style: italic;
 }
 
-</string>
+; background-color: #ffffff</string>
+       </property>
+       <property name="placeholderText">
+        <string>Data da Consulta</string>
        </property>
       </widget>
      </item>
@@ -438,7 +447,10 @@ QLineEdit:placeholder {
     font-style: italic;
 }
 
-</string>
+; background-color: #ffffff</string>
+       </property>
+       <property name="placeholderText">
+        <string>Hora</string>
        </property>
       </widget>
      </item>
@@ -454,7 +466,9 @@ QLineEdit:placeholder {
         <bool>false</bool>
        </property>
        <property name="styleSheet">
-        <string notr="true">QLineEdit {
+        <string notr="true">
+
+QLineEdit {
     font-size: 14px;
     color: black;
     border: 1px solid gray;
@@ -466,7 +480,10 @@ QLineEdit:placeholder {
     font-style: italic;
 }
 
-</string>
+; background-color: #ffffff</string>
+       </property>
+       <property name="placeholderText">
+        <string>Veterinário Responsável</string>
        </property>
       </widget>
      </item>
