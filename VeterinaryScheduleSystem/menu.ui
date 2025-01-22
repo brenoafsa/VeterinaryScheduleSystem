@@ -163,7 +163,8 @@
      <string notr="true">background-color: #C7C0D5; border-radius: 10px; color: #FFFFFF; font-size: 30px;</string>
     </property>
     <property name="text">
-     <string>Agendar Consulta</string>
+     <string>Agendar 
+Consulta</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_9">
@@ -179,7 +180,8 @@
      <string notr="true">background-color: #C7C0D5; border-radius: 10px; color: #FFFFFF; font-size: 30px;</string>
     </property>
     <property name="text">
-     <string>Consultas do Dia</string>
+     <string>Consultas 
+do Dia</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_10">
