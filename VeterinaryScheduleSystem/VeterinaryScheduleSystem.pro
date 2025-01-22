@@ -36,6 +36,7 @@ HEADERS += \
 
 FORMS += \
     agendamento.ui \
+    cadastroPet.ui \
     casdastrocliente.ui \
     mainwindow.ui \
     menu.ui \
