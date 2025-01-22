@@ -8,6 +8,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    connect(ui->BotaoDeEntrada, &QPushButton::clicked, this, &MainWindow::on_BotaoDeEntrada_clicked);
 }
 
 MainWindow::~MainWindow()
@@ -20,12 +21,30 @@ void MainWindow::on_BotaoDeEntrada_clicked()
     QString nome = ui->txt_nome->text();
     QString senha = ui->txt_senha->text();
 
-    QMessageBox::information(this, "Dados inseridos", "Usuário: " + nome + "\nSenha: " + senha);
 
-    // Cria a nova tela de menu e mostra
-    menu *menuScreen = new menu();
-    menuScreen->show();
+    if (verificarCredenciais(nome, senha)) {
+        // Login bem-sucedido, exibe mensagem ou abre nova janela
+       // QMessageBox::information(this, "Login", "Login realizado com sucesso!");
+        // Cria a nova tela de menu e mostra
+        menu *menuScreen = new menu();
+        menuScreen->show();
+
+        // Aqui você pode abrir a próxima janela ou tela principal
+    } else {
+        // Login falhou, exibe mensagem de erro
+        //QMessageBox::warning(this, "Login", "Usuário ou senha inválidos!");
+    }
+
+
 
     // Fecha a janela atual (MainWindow)
-    this->close();
+    //this->close();
+}
+
+bool MainWindow::verificarCredenciais(const QString &nome, const QString &senha) {
+    // Simulação de credenciais armazenadas (substitua com banco de dados se necessário)
+    const QString validnome = "admin";
+    const QString validsenha = "12345";
+
+    return (nome == validnome && senha == validsenha);
 }
