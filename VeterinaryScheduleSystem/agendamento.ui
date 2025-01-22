@@ -162,9 +162,9 @@ color: #ffffff</string>
     <property name="geometry">
      <rect>
       <x>440</x>
-      <y>30</y>
+      <y>10</y>
       <width>471</width>
-      <height>31</height>
+      <height>51</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -244,6 +244,9 @@ color: #ffffff</string>
      <height>401</height>
     </rect>
    </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
    <property name="styleSheet">
     <string notr="true">background-color: #C7C0D5; border-radius: 20px</string>
    </property>
@@ -292,7 +295,7 @@ color: #ffffff</string>
      <rect>
       <x>340</x>
       <y>40</y>
-      <width>331</width>
+      <width>341</width>
       <height>31</height>
      </rect>
     </property>
@@ -302,6 +305,172 @@ color: #ffffff</string>
     <property name="text">
      <string>Preencha os dados da consulta</string>
     </property>
+   </widget>
+   <widget class="QWidget" name="verticalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>240</x>
+      <y>90</y>
+      <width>531</width>
+      <height>301</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <property name="spacing">
+      <number>22</number>
+     </property>
+     <property name="rightMargin">
+      <number>0</number>
+     </property>
+     <item>
+      <widget class="QLineEdit" name="lineEdit_2">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">
+
+QLineEdit {
+    font-size: 14px;
+    color: black;
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 5px;
+}
+QLineEdit:placeholder {
+    color: gray;
+    font-style: italic;
+}
+
+</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="lineEdit_3">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">
+
+QLineEdit {
+    font-size: 14px;
+    color: black;
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 5px;
+}
+QLineEdit:placeholder {
+    color: gray;
+    font-style: italic;
+}
+
+</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="lineEdit_4">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">
+
+QLineEdit {
+    font-size: 14px;
+    color: black;
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 5px;
+}
+QLineEdit:placeholder {
+    color: gray;
+    font-style: italic;
+}
+
+</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="lineEdit_5">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">
+
+QLineEdit {
+    font-size: 14px;
+    color: black;
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 5px;
+}
+QLineEdit:placeholder {
+    color: gray;
+    font-style: italic;
+}
+
+</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="lineEdit">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLineEdit {
+    font-size: 14px;
+    color: black;
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 5px;
+}
+QLineEdit:placeholder {
+    color: gray;
+    font-style: italic;
+}
+
+</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </widget>
   </widget>
  </widget>
