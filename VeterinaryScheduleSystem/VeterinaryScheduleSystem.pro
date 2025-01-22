@@ -11,10 +11,12 @@ CONFIG += c++17
 SOURCES += \
     agendamento.cpp \
     animal.cpp \
+    casdastrocliente.cpp \
     consulta.cpp \
     main.cpp \
     mainwindow.cpp \
     menu.cpp \
+    remarcacao.cpp \
     sistema.cpp \
     tutor.cpp \
     veterinario.cpp
@@ -22,18 +24,22 @@ SOURCES += \
 HEADERS += \
     agendamento.h \
     animal.h \
+    casdastrocliente.h \
     consulta.h \
     database.h \
     mainwindow.h \
     menu.h \
+    remarcacao.h \
     sistema.h \
     tutor.h \
     veterinario.h
 
 FORMS += \
     agendamento.ui \
+    casdastrocliente.ui \
     mainwindow.ui \
-    menu.ui
+    menu.ui \
+    remarcacao.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
