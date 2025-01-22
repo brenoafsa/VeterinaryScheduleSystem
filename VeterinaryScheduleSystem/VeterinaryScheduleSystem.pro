@@ -11,6 +11,7 @@ CONFIG += c++17
 SOURCES += \
     agendamento.cpp \
     animal.cpp \
+    cadastroPet.cpp \
     casdastrocliente.cpp \
     consulta.cpp \
     main.cpp \
@@ -24,6 +25,7 @@ SOURCES += \
 HEADERS += \
     agendamento.h \
     animal.h \
+    cadastroPet.h \
     casdastrocliente.h \
     consulta.h \
     database.h \
