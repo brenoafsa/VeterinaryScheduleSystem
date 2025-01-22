@@ -1,5 +1,5 @@
-#include "casdastrocliente.h"
-#include "ui_casdastrocliente.h"
+#include "cadastroCliente.h"
+#include "ui_cadastroCliente.h"
 
 casdastrocliente::casdastrocliente(QWidget *parent)
     : QDialog(parent)

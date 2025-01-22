@@ -11,8 +11,8 @@ CONFIG += c++17
 SOURCES += \
     agendamento.cpp \
     animal.cpp \
+    cadastroCliente.cpp \
     cadastroPet.cpp \
-    casdastrocliente.cpp \
     consulta.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -25,8 +25,8 @@ SOURCES += \
 HEADERS += \
     agendamento.h \
     animal.h \
+    cadastroCliente.h \
     cadastroPet.h \
-    casdastrocliente.h \
     consulta.h \
     database.h \
     mainwindow.h \
@@ -38,8 +38,8 @@ HEADERS += \
 
 FORMS += \
     agendamento.ui \
+    cadastroCliente.ui \
     cadastroPet.ui \
-    casdastrocliente.ui \
     mainwindow.ui \
     menu.ui \
     remarcacao.ui

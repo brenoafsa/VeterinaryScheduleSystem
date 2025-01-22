@@ -1,5 +1,5 @@
-#ifndef CASDASTROCLIENTE_H
-#define CASDASTROCLIENTE_H
+#ifndef CADASTROCLIENTE_H
+#define CADASTROCLIENTE_H
 
 #include <QDialog>
 
@@ -19,4 +19,4 @@ private:
     Ui::casdastrocliente *ui;
 };
 
-#endif // CASDASTROCLIENTE_H
+#endif // CADASTROCLIENTE_H

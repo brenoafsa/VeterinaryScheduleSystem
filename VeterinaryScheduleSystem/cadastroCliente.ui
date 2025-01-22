@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>agendamento</class>
- <widget class="QDialog" name="agendamento">
+ <class>casdastrocliente</class>
+ <widget class="QDialog" name="casdastrocliente">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -146,95 +146,6 @@ color: #ffffff</string>
     </property>
    </widget>
   </widget>
-  <widget class="QWidget" name="widget" native="true">
-   <property name="geometry">
-    <rect>
-     <x>310</x>
-     <y>30</y>
-     <width>971</width>
-     <height>81</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: #9B88BF; border-radius: 15px</string>
-   </property>
-   <widget class="QLabel" name="titulo">
-    <property name="geometry">
-     <rect>
-      <x>370</x>
-      <y>10</y>
-      <width>471</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">font: 30pt &quot;Garamond&quot;; color: #ffffff</string>
-    </property>
-    <property name="text">
-     <string>Cadastro Pet</string>
-    </property>
-   </widget>
-  </widget>
-  <widget class="QPushButton" name="clienteButton">
-   <property name="geometry">
-    <rect>
-     <x>340</x>
-     <y>140</y>
-     <width>271</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: #C4B4E0;
-font: 700 9pt &quot;System&quot;;
-border-radius: 12px;
-padding: 5px;
-color: #ffffff</string>
-   </property>
-   <property name="text">
-    <string>Cliente</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="petButton">
-   <property name="geometry">
-    <rect>
-     <x>660</x>
-     <y>140</y>
-     <width>271</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: #C4B4E0;
-font: 700 9pt &quot;System&quot;;
-border-radius: 12px;
-padding: 5px;
-color: #ffffff</string>
-   </property>
-   <property name="text">
-    <string>Pet</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pesquisarButton">
-   <property name="geometry">
-    <rect>
-     <x>980</x>
-     <y>140</y>
-     <width>271</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: #C4B4E0;
-font: 700 9pt &quot;System&quot;;
-border-radius: 12px;
-padding: 5px;
-color: #ffffff</string>
-   </property>
-   <property name="text">
-    <string>Pesquisar</string>
-   </property>
-  </widget>
   <widget class="QWidget" name="data_background" native="true">
    <property name="geometry">
     <rect>
@@ -303,7 +214,7 @@ color: #ffffff</string>
      <string notr="true">font: 15pt &quot;Trebuchet MS&quot;; color: #ffffff</string>
     </property>
     <property name="text">
-     <string>Preencha os dados do pet</string>
+     <string>Preencha os dados do tutor</string>
     </property>
    </widget>
    <widget class="QWidget" name="verticalLayoutWidget">
@@ -323,7 +234,7 @@ color: #ffffff</string>
       <number>0</number>
      </property>
      <item>
-      <widget class="QLineEdit" name="nomePet">
+      <widget class="QLineEdit" name="nomeTutor">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
          <horstretch>0</horstretch>
@@ -356,7 +267,7 @@ QLineEdit:placeholder {
       </widget>
      </item>
      <item>
-      <widget class="QLineEdit" name="especiePet">
+      <widget class="QLineEdit" name="cpfTutor">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
          <horstretch>0</horstretch>
@@ -384,12 +295,12 @@ QLineEdit:placeholder {
 ; background-color: #ffffff</string>
        </property>
        <property name="placeholderText">
-        <string>Espécie</string>
+        <string>CPF</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QLineEdit" name="racaPet">
+      <widget class="QLineEdit" name="emailTutor">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
          <horstretch>0</horstretch>
@@ -417,12 +328,12 @@ QLineEdit:placeholder {
 ; background-color: #ffffff</string>
        </property>
        <property name="placeholderText">
-        <string>Raça</string>
+        <string>E-mail</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QLineEdit" name="idadePet">
+      <widget class="QLineEdit" name="enderecoTutor">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
          <horstretch>0</horstretch>
@@ -450,12 +361,12 @@ QLineEdit:placeholder {
 ; background-color: #ffffff</string>
        </property>
        <property name="placeholderText">
-        <string>Idade</string>
+        <string>Endereço</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QLineEdit" name="cotPet">
+      <widget class="QLineEdit" name="telefoneTutor">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
          <horstretch>0</horstretch>
@@ -483,11 +394,101 @@ QLineEdit:placeholder {
 ; background-color: #ffffff</string>
        </property>
        <property name="placeholderText">
-        <string>Cor</string>
+        <string>Telefone</string>
        </property>
       </widget>
      </item>
     </layout>
+   </widget>
+  </widget>
+  <widget class="QPushButton" name="clienteButton">
+   <property name="geometry">
+    <rect>
+     <x>340</x>
+     <y>140</y>
+     <width>271</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: #C4B4E0;
+font: 600 9pt &quot;Segoe UI&quot;;
+font: 700 9pt &quot;System&quot;;
+border-radius: 12px;
+padding: 5px;
+color: #ffffff</string>
+   </property>
+   <property name="text">
+    <string>Cliente</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="petButton">
+   <property name="geometry">
+    <rect>
+     <x>660</x>
+     <y>140</y>
+     <width>271</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: #C4B4E0;
+font: 700 9pt &quot;System&quot;;
+border-radius: 12px;
+padding: 5px;
+color: #ffffff</string>
+   </property>
+   <property name="text">
+    <string>Pet</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pesquisarButton">
+   <property name="geometry">
+    <rect>
+     <x>980</x>
+     <y>140</y>
+     <width>271</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: #C4B4E0;
+font: 700 9pt &quot;System&quot;;
+border-radius: 12px;
+padding: 5px;
+color: #ffffff</string>
+   </property>
+   <property name="text">
+    <string>Pesquisar</string>
+   </property>
+  </widget>
+  <widget class="QWidget" name="widget" native="true">
+   <property name="geometry">
+    <rect>
+     <x>310</x>
+     <y>30</y>
+     <width>971</width>
+     <height>81</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: #9B88BF; border-radius: 15px</string>
+   </property>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>370</x>
+      <y>10</y>
+      <width>471</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 30pt &quot;Garamond&quot;; color: #ffffff</string>
+    </property>
+    <property name="text">
+     <string>Cadastro Cliente</string>
+    </property>
    </widget>
   </widget>
  </widget>
