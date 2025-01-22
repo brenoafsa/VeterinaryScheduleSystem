@@ -15,6 +15,9 @@ public:
     explicit menu(QWidget *parent = nullptr);
     ~menu();
 
+private slots:
+    void on_pushButton_8_clicked(); // Slot para o botão pushButton_8
+
 private:
     Ui::menu *ui;
 };

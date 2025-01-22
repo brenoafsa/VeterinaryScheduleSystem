@@ -6,13 +6,244 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>1127</width>
+    <height>615</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
+  <widget class="QWidget" name="widget" native="true">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>-20</y>
+     <width>1161</width>
+     <height>661</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: #FFFFFF</string>
+   </property>
+   <widget class="QWidget" name="widget_2" native="true">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>50</y>
+      <width>211</width>
+      <height>571</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: #9B88BF; border-radius: 20px</string>
+    </property>
+    <widget class="QPushButton" name="pushButton">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>130</y>
+       <width>171</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: #C4B4E0; border-radius: 20px; color: #FFFFFF; font-size: 20px;</string>
+     </property>
+     <property name="text">
+      <string>Consulta</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_2">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>220</y>
+       <width>171</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: #C4B4E0; border-radius: 20px; color: #FFFFFF; font-size: 20px;</string>
+     </property>
+     <property name="text">
+      <string>Agendamento</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_3">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>310</y>
+       <width>171</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: #C4B4E0; border-radius: 20px; color: #FFFFFF; font-size: 20px;</string>
+     </property>
+     <property name="text">
+      <string>Produtos</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_4">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>390</y>
+       <width>171</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: #C4B4E0; border-radius: 20px; color: #FFFFFF; font-size: 20px;</string>
+     </property>
+     <property name="text">
+      <string>Relatórios</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_5">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>470</y>
+       <width>171</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: #EE6F6F; border-radius: 20px; color: #FFFFFF; font-size: 20px;</string>
+     </property>
+     <property name="text">
+      <string>Sair</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QPushButton" name="pushButton_6">
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>170</y>
+      <width>211</width>
+      <height>101</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: #C7C0D5; border-radius: 10px; color: #FFFFFF; font-size: 30px;</string>
+    </property>
+    <property name="text">
+     <string>Cadastro</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_7">
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>320</y>
+      <width>211</width>
+      <height>101</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: #C7C0D5; border-radius: 10px; color: #FFFFFF; font-size: 30px;</string>
+    </property>
+    <property name="text">
+     <string>Relatórios</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_8">
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>470</y>
+      <width>211</width>
+      <height>101</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: #C7C0D5; border-radius: 10px; color: #FFFFFF; font-size: 30px;</string>
+    </property>
+    <property name="text">
+     <string>Agendar Consulta</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_9">
+    <property name="geometry">
+     <rect>
+      <x>670</x>
+      <y>170</y>
+      <width>211</width>
+      <height>101</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: #C7C0D5; border-radius: 10px; color: #FFFFFF; font-size: 30px;</string>
+    </property>
+    <property name="text">
+     <string>Consultas do Dia</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_10">
+    <property name="geometry">
+     <rect>
+      <x>670</x>
+      <y>320</y>
+      <width>211</width>
+      <height>101</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: #C7C0D5; border-radius: 10px; color: #FFFFFF; font-size: 30px;</string>
+    </property>
+    <property name="text">
+     <string>Produtos</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_11">
+    <property name="geometry">
+     <rect>
+      <x>670</x>
+      <y>470</y>
+      <width>211</width>
+      <height>101</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: #C7C0D5; border-radius: 10px; color: #FFFFFF; font-size: 30px;</string>
+    </property>
+    <property name="text">
+     <string>Prontuários</string>
+    </property>
+   </widget>
+   <widget class="QWidget" name="widget_3" native="true">
+    <property name="geometry">
+     <rect>
+      <x>510</x>
+      <y>40</y>
+      <width>241</width>
+      <height>101</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: #9B88BF; border-radius: 50px;</string>
+    </property>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>20</y>
+       <width>111</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font-size: 40px; color: #FFFFFF;</string>
+     </property>
+     <property name="text">
+      <string>Menu</string>
+     </property>
+    </widget>
+   </widget>
+  </widget>
  </widget>
  <resources/>
  <connections/>
