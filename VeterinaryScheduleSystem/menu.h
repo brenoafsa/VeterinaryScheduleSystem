@@ -18,13 +18,13 @@ public:
     ~menu();
 
 private slots:
-    void on_pushButton_8_clicked(); // Slot para o botão pushButton_8
-    void on_sairButton_clicked();
+    void on_pushButton_8_clicked(); // Slot para abrir Agendamento
+    void on_pushButton_6_clicked(); // Slot para abrir Cadastro Cliente
+    void on_sairButton_clicked();   // Slot para o botão Sair
 
 private:
     Ui::menu *ui;
     MainWindow *mainWindow; // Ponteiro para a janela principal
-
 };
 
 #endif // MENU_H

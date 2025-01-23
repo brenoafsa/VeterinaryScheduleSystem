@@ -22,6 +22,7 @@ HEADERS += \
     agendamento.h \
     cadastrocliente.h \
     cadastropet.h \
+    clientDataBase.h \
     database.h \
     mainwindow.h \
     menu.h \
