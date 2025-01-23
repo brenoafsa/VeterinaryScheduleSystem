@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: #FFFFFF</string>
+  </property>
   <widget class="QWidget" name="sidebar" native="true">
    <property name="geometry">
     <rect>
