@@ -12,6 +12,7 @@ SOURCES += \
     agendamento.cpp \
     cadastrocliente.cpp \
     cadastropet.cpp \
+    database.cpp \
     main.cpp \
     mainwindow.cpp \
     menu.cpp \
