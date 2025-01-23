@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Login</string>
   </property>
   <property name="styleSheet">
    <string notr="true">background-color: #ffffff</string>
@@ -156,9 +156,9 @@ color: #000000</string>
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>0</y>
+      <y>-30</y>
       <width>601</width>
-      <height>541</height>
+      <height>831</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -181,14 +181,7 @@ color: #000000</string>
      <height>25</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menuinical">
-    <property name="title">
-     <string>inical</string>
-    </property>
-   </widget>
-   <addaction name="menuinical"/>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
  <connections/>
