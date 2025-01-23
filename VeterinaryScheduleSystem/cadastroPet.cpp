@@ -1,14 +1,14 @@
-#include "cadastroCliente.h"
-#include "ui_cadastroCliente.h"
+#include "cadastropet.h"
+#include "ui_cadastropet.h"
 
-casdastrocliente::casdastrocliente(QWidget *parent)
+cadastropet::cadastropet(QWidget *parent)
     : QDialog(parent)
-    , ui(new Ui::casdastrocliente)
+    , ui(new Ui::cadastropet)
 {
     ui->setupUi(this);
 }
 
-casdastrocliente::~casdastrocliente()
+cadastropet::~cadastropet()
 {
     delete ui;
 }

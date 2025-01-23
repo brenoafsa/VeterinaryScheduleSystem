@@ -22,11 +22,12 @@ void MainWindow::on_BotaoDeEntrada_clicked()
 
     if (verificarCredenciais(nome, senha)) {
         // Login bem-sucedido, cria e exibe a tela de menu
-        menu *menuScreen = new menu();
+        menu *menuScreen = new menu(this); // Passa a instância da MainWindow
+        menuScreen->setAttribute(Qt::WA_DeleteOnClose); // Garante que o menu seja deletado ao fechar
         menuScreen->show();
 
         // Fecha a janela atual (MainWindow)
-        this->close();
+        this->hide();
 
     } else {
         // Login falhou, exibe mensagem de erro
