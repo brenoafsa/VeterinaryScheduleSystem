@@ -303,7 +303,7 @@ color: #ffffff</string>
      <string notr="true">font: 15pt &quot;Trebuchet MS&quot;; color: #ffffff</string>
     </property>
     <property name="text">
-     <string>Preencha os dados da consulta</string>
+     <string>Preencha os dados do pet</string>
     </property>
    </widget>
    <widget class="QWidget" name="verticalLayoutWidget">
