@@ -8,8 +8,6 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    // A conexão já é feita automaticamente pelo Qt Designer, então a linha abaixo não é necessária
-    // connect(ui->BotaoDeEntrada, &QPushButton::clicked, this, &MainWindow::on_BotaoDeEntrada_clicked);
 }
 
 MainWindow::~MainWindow()
@@ -29,9 +27,20 @@ void MainWindow::on_BotaoDeEntrada_clicked()
 
         // Fecha a janela atual (MainWindow)
         this->close();
+
     } else {
         // Login falhou, exibe mensagem de erro
-        QMessageBox::warning(this, "Login", "Usuário ou senha inválidos!");
+        QMessageBox msgBox;
+
+        msgBox.setIcon(QMessageBox::Warning);
+        msgBox.setText("<font color='black'>Usuário ou senha incorretos!</font>");
+        msgBox.setWindowTitle("Login");
+
+        // Define explicitamente as cores de fundo e texto
+        msgBox.setStyleSheet("QMessageBox { background-color: white; color: black; }");
+
+        msgBox.exec();
+
     }
 }
 

@@ -10,27 +10,17 @@ CONFIG += c++17
 
 SOURCES += \
     agendamento.cpp \
-    animal.cpp \
-    consulta.cpp \
     main.cpp \
     mainwindow.cpp \
     menu.cpp \
-    remarcacao.cpp \
-    sistema.cpp \
-    tutor.cpp \
-    veterinario.cpp
+    remarcacao.cpp
 
 HEADERS += \
     agendamento.h \
-    animal.h \
-    consulta.h \
     database.h \
     mainwindow.h \
     menu.h \
-    remarcacao.h \
-    sistema.h \
-    tutor.h \
-    veterinario.h
+    remarcacao.h
 
 FORMS += \
     agendamento.ui \
