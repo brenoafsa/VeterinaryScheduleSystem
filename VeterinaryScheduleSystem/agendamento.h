@@ -15,6 +15,11 @@ public:
     explicit agendamento(QWidget *parent = nullptr);
     ~agendamento();
 
+private slots:
+    void on_menuButton_clicked();
+
+    void on_remarcacaoButton_clicked();
+
 private:
     Ui::agendamento *ui;
 };

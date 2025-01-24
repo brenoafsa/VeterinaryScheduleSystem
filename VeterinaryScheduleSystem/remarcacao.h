@@ -15,6 +15,11 @@ public:
     explicit remarcacao(QWidget *parent = nullptr);
     ~remarcacao();
 
+private slots:
+    void on_novaconsultaButton_clicked();
+
+    void on_menuButton_clicked();
+
 private:
     Ui::remarcacao *ui;
 };

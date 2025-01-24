@@ -15,6 +15,11 @@ public:
     explicit cadastropet(QWidget *parent = nullptr);
     ~cadastropet();
 
+private slots:
+    void on_menuButton_clicked();
+
+    void on_clienteButton_2_clicked();
+
 private:
     Ui::cadastropet *ui;
 };

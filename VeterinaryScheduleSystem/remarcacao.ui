@@ -436,6 +436,15 @@ color: #ffffff</string>
      <height>41</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>System</family>
+     <pointsize>9</pointsize>
+     <italic>false</italic>
+     <bold>true</bold>
+     <underline>true</underline>
+    </font>
+   </property>
    <property name="styleSheet">
     <string notr="true">background-color: #C4B4E0;
 font: 700 9pt &quot;System&quot;;

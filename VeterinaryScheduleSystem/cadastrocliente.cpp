@@ -1,6 +1,7 @@
 #include "cadastrocliente.h"
 #include "ui_cadastrocliente.h"
 #include "cadastropet.h"
+#include "menu.h"
 #include <QMessageBox>
 #include <QStringList>
 
@@ -263,9 +264,18 @@ void cadastrocliente::onDeletarClienteClicked()
 
 void cadastrocliente::on_petButton_clicked()
 {
-    // Botão Cadastro Cliente
+    // Botão Cadastro Pet
     cadastropet *petScreen = new cadastropet(); // Cria a tela de cadastro
     petScreen->show(); // Exibe a tela de cadastro
     this->close();          // Fecha a janela do menu
+}
+
+
+void cadastrocliente::on_menuButton_clicked()
+{
+    // Botão retornar ao menu
+    menu *menuScreen = new menu();
+    menuScreen->show();     // Exibe a tela de menu
+    this->close();          // Fecha a tela de cadastro
 }
 
