@@ -88,6 +88,8 @@ private slots:
     void onAtualizarClienteClicked();
     void onDeletarClienteClicked();
 
+    void on_petButton_clicked();
+
 private:
     Ui::cadastrocliente *ui;
     QPushButton *listarClientesButton;

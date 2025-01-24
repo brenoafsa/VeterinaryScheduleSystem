@@ -3,12 +3,17 @@
 #include "menu.h"  // Inclua o cabeçalho da nova tela
 #include "database.h"  // Inclua o cabeçalho do banco de dados
 #include <QMessageBox>
+#include <QPixmap>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+    QPixmap logo("C:/Users/camil/Documents/GitHub/VeterinaryScheduleSystem/VeterinaryScheduleSystem/logo1.png");
+     ui->label->setPixmap(logo.scaled(500, 500, Qt::KeepAspectRatio));
+
 }
 
 MainWindow::~MainWindow()
@@ -18,6 +23,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_BotaoDeEntrada_clicked()
 {
+
     QString nome = ui->txt_nome->text().trimmed();  // Remover espaços extras
     QString senha = ui->txt_senha->text().trimmed();  // Remover espaços extras
 
@@ -60,3 +66,5 @@ bool MainWindow::verificarCredenciais(const QString &nome, const QString &senha)
     }
     return false;  // Senha ou usuário incorreto
 }
+
+

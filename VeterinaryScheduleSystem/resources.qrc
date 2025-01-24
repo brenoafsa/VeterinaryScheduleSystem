@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/new/prefix1">
+        <file>imagens/logo_trabalho_edoo__3_-removebg-preview.png</file>
+        <file>imagens/logo_trabalho_edoo__4_-removebg-preview (1).png</file>
+        <file>imagens/logo_trabalho_edoo__5_-removebg-preview.png</file>
+    </qresource>
+</RCC>
