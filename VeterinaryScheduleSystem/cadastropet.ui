@@ -332,7 +332,7 @@ color: #ffffff</string>
     <property name="geometry">
      <rect>
       <x>340</x>
-      <y>40</y>
+      <y>10</y>
       <width>341</width>
       <height>31</height>
      </rect>
@@ -347,21 +347,24 @@ color: #ffffff</string>
    <widget class="QWidget" name="verticalLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>220</x>
-      <y>80</y>
+      <x>240</x>
+      <y>40</y>
       <width>531</width>
-      <height>301</height>
+      <height>360</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
      <property name="spacing">
-      <number>22</number>
+      <number>15</number>
      </property>
      <property name="rightMargin">
       <number>0</number>
      </property>
      <item>
       <widget class="QLineEdit" name="nomePet">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
        <property name="sizePolicy">
         <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
          <horstretch>0</horstretch>
@@ -423,6 +426,39 @@ QLineEdit:placeholder {
        </property>
        <property name="placeholderText">
         <string>Espécie</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="especiePet_2">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">
+
+QLineEdit {
+    font-size: 14px;
+    color: black;
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 5px;
+}
+QLineEdit:placeholder {
+    color: gray;
+    font-style: italic;
+}
+
+; background-color: #ffffff</string>
+       </property>
+       <property name="placeholderText">
+        <string>CPF do Tutor</string>
        </property>
       </widget>
      </item>
