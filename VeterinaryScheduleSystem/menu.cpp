@@ -11,9 +11,8 @@ menu::menu(MainWindow *parent) :
 {
     ui->setupUi(this);
 
-    ui->label_2->setStyleSheet("background: transparent;");
     QPixmap logo("C:/Users/camil/Documents/GitHub/VeterinaryScheduleSystem/VeterinaryScheduleSystem/logo1.png");
-    ui->label_2->setPixmap(logo.scaled(500, 500, Qt::KeepAspectRatio));
+    //ui->label_2->setPixmap(logo.scaled(500, 500, Qt::KeepAspectRatio));
 }
 
 menu::~menu()

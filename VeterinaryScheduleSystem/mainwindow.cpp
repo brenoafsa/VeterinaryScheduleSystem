@@ -11,8 +11,8 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    QPixmap logo("C:/Users/camil/Documents/GitHub/VeterinaryScheduleSystem/VeterinaryScheduleSystem/logo1.png");
-     ui->label->setPixmap(logo.scaled(500, 500, Qt::KeepAspectRatio));
+    QPixmap logo(":/images/images/logo1.png");
+    ui->label->setPixmap(logo.scaled(500, 500, Qt::KeepAspectRatio));
 
 }
 

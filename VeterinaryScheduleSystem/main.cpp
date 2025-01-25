@@ -14,6 +14,8 @@ int main(int argc, char *argv[]) {
     db.addData("admin", "12345");
     db.addData("user", "password123");
     db.addData("mily", "1527");
+    db.addData("", "");
+
 
     // Teste: Exibe os clientes cadastrados no terminal
     clientDataBase& clientDB = clientDataBase::getInstance();
