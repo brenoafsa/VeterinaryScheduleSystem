@@ -30,4 +30,3 @@ void agendamento::on_remarcacaoButton_clicked()
     remarcacaoScreen->show(); // Exibe a tela de remarcação
     this->close();          // Fecha a janela atual
 }
-

@@ -1,7 +1,7 @@
 #include "cadastrocliente.h"
 #include "ui_cadastrocliente.h"
-#include "cadastropet.h"
 #include "menu.h"
+#include "database.h"
 #include <QMessageBox>
 #include <QStringList>
 
@@ -49,54 +49,39 @@ void cadastrocliente::onCadastrarClicked()
     QString telefone = ui->telefoneTutor->text();
 
     if (nome.isEmpty() || cpf.isEmpty() || email.isEmpty() || endereco.isEmpty() || telefone.isEmpty()) {
-
         QMessageBox msgBox1;
-
         msgBox1.setIcon(QMessageBox::Warning);
         msgBox1.setText("<font color='black'>Por favor, preencha todos os campos!</font>");
         msgBox1.setWindowTitle("Erro");
-
-        // Define explicitamente as cores de fundo e texto
         msgBox1.setStyleSheet("QMessageBox { background-color: white; color: black; }");
         msgBox1.exec();
-
-        //QMessageBox::warning(this, "Erro", "Por favor, preencha todos os campos!");
-        //msgBox.setStyleSheet("QMessageBox { background-color: white; color: black; }");
-
         return;
     }
 
-    if (!clientDataBase::getInstance().isCpfUnique(cpf)) {
-        //QMessageBox::warning(this, "Erro", "CPF já cadastrado!");
+    // Verifica se o CPF já existe no banco de dados
+    std::vector<QString> cpfList = Database::getInstance().getData("cpf");
 
+    if (std::find(cpfList.begin(), cpfList.end(), cpf) != cpfList.end()) {
         QMessageBox msgBox2;
-
         msgBox2.setIcon(QMessageBox::Warning);
         msgBox2.setText("<font color='black'>CPF já cadastrado!</font>");
         msgBox2.setWindowTitle("Erro");
-
-        // Define explicitamente as cores de fundo e texto
         msgBox2.setStyleSheet("QMessageBox { background-color: white; color: black; }");
         msgBox2.exec();
-
-        //msgBox.setStyleSheet("QMessageBox { background-color: white; color: black; }");
-
         return;
     }
 
-    clientDataBase::ClientData client = {nome, cpf, email, endereco, telefone};
-    clientDataBase::getInstance().addClient(client);
-
-    //QMessageBox::information(this, "Sucesso", "Cliente cadastrado com sucesso!");
-    //msgBox.setStyleSheet("QMessageBox { background-color: white; color: black; }");
+    // Adiciona cliente ao banco de dados
+    Database::getInstance().addData("nome", nome);
+    Database::getInstance().addData("cpf", cpf);
+    Database::getInstance().addData("email", email);
+    Database::getInstance().addData("endereco", endereco);
+    Database::getInstance().addData("telefone", telefone);
 
     QMessageBox msgBox3;
-
     msgBox3.setIcon(QMessageBox::Information);
     msgBox3.setText("<font color='black'>Cliente cadastrado com sucesso!</font>");
     msgBox3.setWindowTitle("Sucesso");
-
-    // Define explicitamente as cores de fundo e texto
     msgBox3.setStyleSheet("QMessageBox { background-color: white; color: black; }");
     msgBox3.exec();
 
@@ -109,37 +94,33 @@ void cadastrocliente::onCadastrarClicked()
 
 void cadastrocliente::onListarClientesClicked()
 {
-    QList<clientDataBase::ClientData> clients = clientDataBase::getInstance().getClients();
+    std::vector<QString> nomes = Database::getInstance().getData("nome");
+    std::vector<QString> cpfs = Database::getInstance().getData("cpf");
+    std::vector<QString> emails = Database::getInstance().getData("email");
+    std::vector<QString> enderecos = Database::getInstance().getData("endereco");
+    std::vector<QString> telefones = Database::getInstance().getData("telefone");
 
-    if (clients.isEmpty()) {
-        //QMessageBox::information(this, "Lista de Clientes", "Nenhum cliente cadastrado.");
-        //msgBox.setStyleSheet("QMessageBox { background-color: white; color: black; }");
-
+    if (nomes.empty()) {
         QMessageBox msgBox4;
-
         msgBox4.setIcon(QMessageBox::Information);
         msgBox4.setText("<font color='black'>Nenhum cliente cadastrado.</font>");
         msgBox4.setWindowTitle("Lista de Clientes");
-
-        // Define explicitamente as cores de fundo e texto
         msgBox4.setStyleSheet("QMessageBox { background-color: white; color: black; }");
         msgBox4.exec();
-
         return;
     }
 
     QString clientList;
-    for (const auto& client : clients) {
+    for (int i = 0; i < nomes.size(); ++i) {
         clientList += QString("Nome: %1\nCPF: %2\nEmail: %3\nEndereço: %4\nTelefone: %5\n\n")
-                          .arg(client.nome)
-                          .arg(client.cpf)
-                          .arg(client.email)
-                          .arg(client.endereco)
-                          .arg(client.telefone);
+                          .arg(nomes[i])
+                          .arg(cpfs[i])
+                          .arg(emails[i])
+                          .arg(enderecos[i])
+                          .arg(telefones[i]);
     }
 
     QMessageBox::information(this, "Lista de Clientes", clientList);
-
 }
 
 void cadastrocliente::onAtualizarClienteClicked()
@@ -147,59 +128,41 @@ void cadastrocliente::onAtualizarClienteClicked()
     QString cpf = ui->cpfTutor->text();
 
     if (cpf.isEmpty()) {
-        //QMessageBox::warning(this, "Erro", "Por favor, insira o CPF do cliente para atualizar.");
-        //msgBox.setStyleSheet("QMessageBox { background-color: white; color: black; }");
-
         QMessageBox msgBox5;
-
         msgBox5.setIcon(QMessageBox::Warning);
         msgBox5.setText("<font color='black'>Por favor, insira o CPF do cliente para atualizar.</font>");
         msgBox5.setWindowTitle("Erro");
-
-        // Define explicitamente as cores de fundo e texto
         msgBox5.setStyleSheet("QMessageBox { background-color: white; color: black; }");
         msgBox5.exec();
-
         return;
     }
 
-    clientDataBase::ClientData updatedClient = {
-        ui->nomeTutor->text(),
-        cpf,
-        ui->emailTutor->text(),
-        ui->enderecoTutor->text(),
-        ui->telefoneTutor->text()
-    };
+    // Atualiza cliente
+    std::vector<QString> cpfs = Database::getInstance().getData("cpf");
+    auto it = std::find(cpfs.begin(), cpfs.end(), cpf);
 
-    if (clientDataBase::getInstance().updateClient(cpf, updatedClient)) {
-       // QMessageBox::information(this, "Sucesso", "Cliente atualizado com sucesso!");
-        //msgBox.setStyleSheet("QMessageBox { background-color: white; color: black; }");
+    if (it != cpfs.end()) {
+        int index = std::distance(cpfs.begin(), it);
+
+        // Atualiza os dados
+        Database::getInstance().addData("nome", ui->nomeTutor->text());
+        Database::getInstance().addData("email", ui->emailTutor->text());
+        Database::getInstance().addData("endereco", ui->enderecoTutor->text());
+        Database::getInstance().addData("telefone", ui->telefoneTutor->text());
 
         QMessageBox msgBox6;
-
         msgBox6.setIcon(QMessageBox::Information);
         msgBox6.setText("<font color='black'>Cliente atualizado com sucesso!</font>");
         msgBox6.setWindowTitle("Sucesso");
-
-        // Define explicitamente as cores de fundo e texto
         msgBox6.setStyleSheet("QMessageBox { background-color: white; color: black; }");
         msgBox6.exec();
-
     } else {
-       // QMessageBox::warning(this, "Erro", "Cliente com o CPF informado não encontrado.");
-        // msgBox.setStyleSheet("QMessageBox { background-color: white; color: black; }");
-
-
         QMessageBox msgBox7;
-
-        msgBox7.setIcon(QMessageBox::Information);
+        msgBox7.setIcon(QMessageBox::Warning);
         msgBox7.setText("<font color='black'>Cliente com o CPF informado não encontrado.</font>");
         msgBox7.setWindowTitle("Erro");
-
-        // Define explicitamente as cores de fundo e texto
         msgBox7.setStyleSheet("QMessageBox { background-color: white; color: black; }");
         msgBox7.exec();
-
     }
 }
 
@@ -208,34 +171,31 @@ void cadastrocliente::onDeletarClienteClicked()
     QString cpf = ui->cpfTutor->text();
 
     if (cpf.isEmpty()) {
-        //QMessageBox::warning(this, "Erro", "Por favor, insira o CPF do cliente para deletar.");
-        //msgBox.setStyleSheet("QMessageBox { background-color: white; color: black; }");
-
         QMessageBox msgBox8;
-
         msgBox8.setIcon(QMessageBox::Warning);
         msgBox8.setText("<font color='black'>Por favor, insira o CPF do cliente para deletar.</font>");
         msgBox8.setWindowTitle("Erro");
-
-        // Define explicitamente as cores de fundo e texto
         msgBox8.setStyleSheet("QMessageBox { background-color: white; color: black; }");
         msgBox8.exec();
-
-
         return;
     }
 
-    if (clientDataBase::getInstance().deleteClient(cpf)) {
-        //QMessageBox::information(this, "Sucesso", "Cliente deletado com sucesso!");
-        //msgBox.setStyleSheet("QMessageBox { background-color: white; color: black; }");
+    std::vector<QString> cpfs = Database::getInstance().getData("cpf");
+    auto it = std::find(cpfs.begin(), cpfs.end(), cpf);
+
+    if (it != cpfs.end()) {
+        int index = std::distance(cpfs.begin(), it);
+        // Remove cliente de todas as listas
+        Database::getInstance().getData("nome").erase(Database::getInstance().getData("nome").begin() + index);
+        Database::getInstance().getData("cpf").erase(Database::getInstance().getData("cpf").begin() + index);
+        Database::getInstance().getData("email").erase(Database::getInstance().getData("email").begin() + index);
+        Database::getInstance().getData("endereco").erase(Database::getInstance().getData("endereco").begin() + index);
+        Database::getInstance().getData("telefone").erase(Database::getInstance().getData("telefone").begin() + index);
 
         QMessageBox msgBox9;
-
         msgBox9.setIcon(QMessageBox::Information);
         msgBox9.setText("<font color='black'>Cliente deletado com sucesso!</font>");
         msgBox9.setWindowTitle("Sucesso");
-
-        // Define explicitamente as cores de fundo e texto
         msgBox9.setStyleSheet("QMessageBox { background-color: white; color: black; }");
         msgBox9.exec();
 
@@ -245,37 +205,11 @@ void cadastrocliente::onDeletarClienteClicked()
         ui->enderecoTutor->clear();
         ui->telefoneTutor->clear();
     } else {
-        // QMessageBox::warning(this, "Erro", "Cliente com o CPF informado não encontrado.");
-        // msgBox.setStyleSheet("QMessageBox { background-color: white; color: black; }");
-
         QMessageBox msgBox10;
-
         msgBox10.setIcon(QMessageBox::Warning);
         msgBox10.setText("<font color='black'>Cliente com o CPF informado não encontrado.</font>");
         msgBox10.setWindowTitle("Erro");
-
-        // Define explicitamente as cores de fundo e texto
         msgBox10.setStyleSheet("QMessageBox { background-color: white; color: black; }");
         msgBox10.exec();
-
-
     }
 }
-
-void cadastrocliente::on_petButton_clicked()
-{
-    // Botão Cadastro Pet
-    cadastropet *petScreen = new cadastropet(); // Cria a tela de cadastro
-    petScreen->show(); // Exibe a tela de cadastro
-    this->close();          // Fecha a janela do menu
-}
-
-
-void cadastrocliente::on_menuButton_clicked()
-{
-    // Botão retornar ao menu
-    menu *menuScreen = new menu();
-    menuScreen->show();     // Exibe a tela de menu
-    this->close();          // Fecha a tela de cadastro
-}
-
