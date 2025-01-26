@@ -121,7 +121,13 @@ void cadastrocliente::onListarClientesClicked()
                           .arg(telefones[i]);
     }
 
-    QMessageBox::information(this, "Lista de Clientes", clientList);
+    //QMessageBox::information(this, "Lista de Clientes", clientList);
+    QMessageBox msgBoxlist;
+    msgBoxlist.setIcon(QMessageBox::Information);
+    msgBoxlist.setText(QString("<font color='black'>%1</font>").arg(clientList));
+    msgBoxlist.setWindowTitle("Lista de Clientes");
+    msgBoxlist.setStyleSheet("QMessageBox { background-color: white; color: black; }");
+    msgBoxlist.exec();
 }
 
 void cadastrocliente::onAtualizarClienteClicked()

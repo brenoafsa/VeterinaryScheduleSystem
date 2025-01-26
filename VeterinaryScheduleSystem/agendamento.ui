@@ -425,7 +425,7 @@ QLineEdit:placeholder {
 ; background-color: #ffffff</string>
        </property>
        <property name="placeholderText">
-        <string>Nome do Tutor</string>
+        <string>CPF do Tutor</string>
        </property>
       </widget>
      </item>

@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "database.h"
 #include "cadastrocliente.h"
+#include "cadastropet.h"
 #include <QApplication>
 #include <iostream>
 
@@ -8,6 +9,8 @@ using namespace std;
 
 int main(int argc, char *argv[]) {
     QApplication a(argc, argv);
+
+
 
     // Inicializa o banco de dados de usuários
     Database& db = Database::getInstance();

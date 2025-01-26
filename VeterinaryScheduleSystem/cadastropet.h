@@ -4,19 +4,33 @@
 #include <QDialog>
 
 namespace Ui {
-class cadastropet;
+class cadastropet;  // Nome da classe
 }
 
-class cadastropet : public QDialog
-{
+class cadastropet : public QDialog {
     Q_OBJECT
 
 public:
     explicit cadastropet(QWidget *parent = nullptr);
     ~cadastropet();
 
+private slots:
+    void cadastrarPet();  // Adicione a declaração do método aqui.
+
+    void on_cadastrarButton_2_clicked();
+
+    void on_ListarPets_clicked();
+
+    void on_AtualizarPet_clicked();
+
+    void on_DeletarPet_clicked();
+
+    void on_clienteButton_2_clicked();
+
 private:
     Ui::cadastropet *ui;
+    QVector<QJsonObject> carregarDados();
+    void salvarDados(const QVector<QJsonObject> &dados);
 };
 
 #endif // CADASTROPET_H
