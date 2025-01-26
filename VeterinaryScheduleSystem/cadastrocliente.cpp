@@ -2,6 +2,7 @@
 #include "ui_cadastrocliente.h"
 #include "menu.h"
 #include "database.h"
+#include "cadastropet.h"
 #include <QMessageBox>
 #include <QStringList>
 
@@ -211,5 +212,17 @@ void cadastrocliente::onDeletarClienteClicked()
         msgBox10.setWindowTitle("Erro");
         msgBox10.setStyleSheet("QMessageBox { background-color: white; color: black; }");
         msgBox10.exec();
+
+
+
+
     }
 }
+
+void cadastrocliente::on_clienteButton_2_clicked()
+{
+    cadastropet *petScreen = new cadastropet();
+    petScreen->show();
+    this->close();
+}
+

@@ -11,6 +11,7 @@ menu::menu(MainWindow *parent) :
 {
     ui->setupUi(this);
 
+
     QPixmap logo("C:/Users/camil/Documents/GitHub/VeterinaryScheduleSystem/VeterinaryScheduleSystem/logo1.png");
     //ui->label_2->setPixmap(logo.scaled(500, 500, Qt::KeepAspectRatio));
 }
@@ -38,6 +39,7 @@ void menu::on_pushButton_8_clicked()
 
 void menu::on_sairButton_clicked()
 {
+
     // Botão Sair
     this->close(); // Fecha o menu
     if (mainWindow) {
