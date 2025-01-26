@@ -83,22 +83,27 @@ public:
     ~cadastrocliente();
 
 private slots:
-    void onCadastrarClicked();
-    void onListarClientesClicked();
-    void onAtualizarClienteClicked();
-    void onDeletarClienteClicked();
-
-    void on_petButton_clicked();
 
     void on_menuButton_clicked();
 
     void on_clienteButton_2_clicked();
+
+    void on_ListarCliente_clicked();
+
+    void on_AtualizarCliente_clicked();
+
+    void on_DeletarCliente_clicked();
+
+    void on_cadastrarButton_clicked();
 
 private:
     Ui::cadastrocliente *ui;
     QPushButton *listarClientesButton;
     QPushButton *atualizarClienteButton;
     QPushButton *deletarClienteButton;
+
+    QVector<QJsonObject> carregarTutores(); // Carrega tutores do arquivo JSON
+    void salvarTutores(const QVector<QJsonObject> &tutores); // Salva tutores no arquivo JSON
 };
 
 #endif // CADASTROCLIENTE_H

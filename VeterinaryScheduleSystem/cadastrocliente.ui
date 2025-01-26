@@ -507,6 +507,57 @@ QLineEdit:placeholder {
      </item>
     </layout>
    </widget>
+   <widget class="QPushButton" name="ListarCliente">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>60</y>
+      <width>111</width>
+      <height>29</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(0, 255, 0);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>listar tutores</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="AtualizarCliente">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>110</y>
+      <width>111</width>
+      <height>29</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 0);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>atualizar tutores</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="DeletarCliente">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>160</y>
+      <width>111</width>
+      <height>29</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 0, 0);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>deletar tutores</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QPushButton" name="clienteButton_2">
    <property name="geometry">

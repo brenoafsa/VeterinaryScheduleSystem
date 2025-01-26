@@ -30,7 +30,9 @@ cadastropet::~cadastropet() {
 // Implementação do método cadastrarPet
 void cadastropet::cadastrarPet() {
     // Reutiliza o método on_cadastrarButton_2_clicked
-    on_cadastrarButton_2_clicked();
+    //on_cadastrarButton_2_clicked();
+
+    //não precisa mais usar isso
 }
 
 
@@ -47,7 +49,49 @@ void cadastropet::on_cadastrarButton_2_clicked() {
 
     // Verifica se os campos obrigatórios estão preenchidos
     if (nome.isEmpty() || especie.isEmpty() || cpfTutor.isEmpty()) {
-        QMessageBox::warning(this, "Erro", "Por favor, preencha os campos obrigatórios.");
+        QMessageBox msgBox0;
+        msgBox0.setIcon(QMessageBox::Warning);
+        msgBox0.setText("<font color='black'>Por favor, preencha os campos obrigatórios.</font>");
+        msgBox0.setWindowTitle("Erro");
+        msgBox0.setStyleSheet("QMessageBox { background-color: white; color: black; }");
+        msgBox0.exec();
+        return;
+    }
+
+    // Verifica se o CPF do tutor existe no arquivo tutores.json
+    QFile tutorFile("tutores.json");
+    if (!tutorFile.open(QIODevice::ReadOnly)) {
+        QMessageBox msgBox1;
+        msgBox1.setIcon(QMessageBox::Critical);
+        msgBox1.setText("<font color='black'>Erro ao acessar o arquivo de tutores.</font>");
+        msgBox1.setWindowTitle("Erro");
+        msgBox1.setStyleSheet("QMessageBox { background-color: white; color: black; }");
+        msgBox1.exec();
+        return;
+    }
+
+    QByteArray tutorData = tutorFile.readAll();
+    tutorFile.close();
+
+    QJsonDocument tutorDoc = QJsonDocument::fromJson(tutorData);
+    QJsonArray tutorArray = tutorDoc.array();
+
+    bool cpfEncontrado = false;
+    for (const auto &tutor : tutorArray) {
+        QJsonObject tutorObj = tutor.toObject();
+        if (tutorObj["cpf"].toString() == cpfTutor) {
+            cpfEncontrado = true;
+            break;
+        }
+    }
+
+    if (!cpfEncontrado) {
+        QMessageBox msgBox2;
+        msgBox2.setIcon(QMessageBox::Warning);
+        msgBox2.setText("<font color='black'>CPF do tutor não encontrado. Cadastre o tutor antes de adicionar o pet.</font>");
+        msgBox2.setWindowTitle("Erro");
+        msgBox2.setStyleSheet("QMessageBox { background-color: white; color: black; }");
+        msgBox2.exec();
         return;
     }
 
