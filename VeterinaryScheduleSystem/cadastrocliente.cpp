@@ -3,6 +3,7 @@
 #include "menu.h"
 #include "database.h"
 #include "cadastropet.h"
+#include "cadastropesquisar.h"
 #include <QMessageBox>
 #include <QStringList>
 #include <QFile>
@@ -274,3 +275,13 @@ void cadastrocliente::on_menuButton_clicked()
     menuScreen->show();
     this->close();
 }
+
+
+
+void cadastrocliente::on_pesquisarButton_clicked()
+{
+    cadastropesquisar *pesquisarScreen = new cadastropesquisar();
+    pesquisarScreen->show();
+    this->close();
+}
+

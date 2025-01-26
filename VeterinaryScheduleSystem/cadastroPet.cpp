@@ -2,6 +2,7 @@
 #include "ui_cadastropet.h"
 #include "cadastrocliente.h"
 #include "database.h"
+#include "cadastropesquisar.h"
 #include <QMessageBox>
 #include <QFile>
 #include <QJsonDocument>
@@ -18,6 +19,7 @@ cadastropet::cadastropet(QWidget *parent)
 
     // Conectando o botão "Cadastrar" ao método de cadastro
     connect(ui->cadastrarButton_2, &QPushButton::clicked, this, &cadastropet::cadastrarPet);
+
 }
 
 cadastropet::~cadastropet() {
@@ -339,3 +341,13 @@ QVector<QJsonObject> cadastropet::carregarDados() {
 
     return dados; // Retorna os dados carregados
 }
+
+
+//BOTÃO PAGINA PESQUISAR
+void cadastropet::on_pesquisarButton_2_clicked()
+{
+    cadastropesquisar *pesquisarScreen = new cadastropesquisar();
+    pesquisarScreen->show();
+    this->close();
+}
+

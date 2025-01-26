@@ -15,6 +15,10 @@ public:
     explicit cadastroconsulta(QWidget *parent = nullptr);
     ~cadastroconsulta();
 
+private slots:
+
+    void on_pesquisarrButton_3_clicked();
+
 private:
     Ui::cadastroconsulta *ui;
 };
