@@ -13,13 +13,6 @@ cadastroconsulta::~cadastroconsulta()
     delete ui;
 }
 
-
-
-
-
-
-
-
 //BOTÃO DE PESQUISAR
 void cadastroconsulta::on_pesquisarrButton_3_clicked()
 {

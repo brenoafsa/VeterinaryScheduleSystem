@@ -10,6 +10,7 @@ CONFIG += c++17
 
 SOURCES += \
     agendamento.cpp \
+    cadastroalterar.cpp \
     cadastrocliente.cpp \
     cadastroconsulta.cpp \
     cadastropesquisar.cpp \
@@ -22,6 +23,7 @@ SOURCES += \
 
 HEADERS += \
     agendamento.h \
+    cadastroalterar.h \
     cadastrocliente.h \
     cadastroconsulta.h \
     cadastropesquisar.h \
@@ -33,6 +35,7 @@ HEADERS += \
 
 FORMS += \
     agendamento.ui \
+    cadastroalterar.ui \
     cadastrocliente.ui \
     cadastroconsulta.ui \
     cadastropesquisar.ui \

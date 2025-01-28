@@ -5,6 +5,7 @@
 #include <QString>
 #include <QList>
 #include <QPushButton>
+#include "cadastroalterar.h"  // Inclua o cabeçalho da nova tela
 
 namespace Ui {
 class cadastrocliente;
@@ -83,26 +84,23 @@ public:
     ~cadastrocliente();
 
 private slots:
-
     void on_menuButton_clicked();
-
     void on_clienteButton_2_clicked();
-
     void on_ListarCliente_clicked();
-
     void on_AtualizarCliente_clicked();
-
     void on_DeletarCliente_clicked();
-
     void on_cadastrarButton_clicked();
-
     void on_pesquisarButton_clicked();
+
+    void on_telaButton_clicked();  // Novo slot para troca de tela
 
 private:
     Ui::cadastrocliente *ui;
     QPushButton *listarClientesButton;
     QPushButton *atualizarClienteButton;
     QPushButton *deletarClienteButton;
+
+    cadastroalterar *cadastroalterarWindow;  // Instância da nova tela
 
     QVector<QJsonObject> carregarTutores(); // Carrega tutores do arquivo JSON
     void salvarTutores(const QVector<QJsonObject> &tutores); // Salva tutores no arquivo JSON
