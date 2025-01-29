@@ -26,6 +26,8 @@ private slots:
 
     void on_consultaButton_clicked();
 
+    void on_pushButton_9_clicked();
+
 private:
     Ui::menu *ui;
     MainWindow *mainWindow; // Ponteiro para a janela principal

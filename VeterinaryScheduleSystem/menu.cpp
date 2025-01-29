@@ -65,3 +65,11 @@ void menu::on_consultaButton_clicked()
     this -> close();
 }
 
+
+void menu::on_pushButton_9_clicked()
+{
+    consultasdodia *consultas2Screen = new consultasdodia();
+    consultas2Screen -> show();
+    this -> close();
+}
+

@@ -22,8 +22,13 @@ private slots:
 
     void on_consultaButton_clicked();
 
+    void on_pushButton_10_clicked();
+
 private:
     Ui::agendamento *ui;
+    QJsonArray loadJsonArray(const QString &filename);
+    bool saveConsulta(const QJsonObject &consulta);
+    void showErrorDialog(const QString &message);
 };
 
 #endif // AGENDAMENTO_H

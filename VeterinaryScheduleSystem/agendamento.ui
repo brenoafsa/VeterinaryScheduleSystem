@@ -299,7 +299,7 @@ color: #ffffff</string>
       <x>220</x>
       <y>80</y>
       <width>531</width>
-      <height>301</height>
+      <height>302</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
@@ -376,68 +376,21 @@ QLineEdit:placeholder {
       </widget>
      </item>
      <item>
-      <widget class="QLineEdit" name="lineEdit_4">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="autoFillBackground">
-        <bool>false</bool>
-       </property>
+      <widget class="QDateEdit" name="dateEdit">
        <property name="styleSheet">
-        <string notr="true">
-
-QLineEdit {
-    font-size: 14px;
-    color: black;
-    border: 1px solid gray;
-    border-radius: 5px;
-    padding: 5px;
-}
-QLineEdit:placeholder {
-    color: gray;
-    font-style: italic;
-}
-
-; background-color: #ffffff</string>
-       </property>
-       <property name="placeholderText">
-        <string>Data da Consulta</string>
+        <string notr="true">color: gray;
+background-color: rgb(255, 255, 255);
+border-radius: 5px;</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QLineEdit" name="lineEdit_5">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="autoFillBackground">
-        <bool>false</bool>
-       </property>
+      <widget class="QTimeEdit" name="timeEdit">
        <property name="styleSheet">
-        <string notr="true">
-
-QLineEdit {
-    font-size: 14px;
-    color: black;
-    border: 1px solid gray;
-    border-radius: 5px;
-    padding: 5px;
-}
-QLineEdit:placeholder {
-    color: gray;
-    font-style: italic;
-}
-
-; background-color: #ffffff</string>
-       </property>
-       <property name="placeholderText">
-        <string>Hora</string>
+        <string notr="true">color: gray;
+background-color: rgb(255, 255, 255);
+border-radius: 5px;
+</string>
        </property>
       </widget>
      </item>
