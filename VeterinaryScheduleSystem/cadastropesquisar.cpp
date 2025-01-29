@@ -2,6 +2,7 @@
 #include "ui_cadastropesquisar.h"
 #include "cadastrocliente.h"
 #include "cadastropet.h"
+#include "menu.h"
 #include <QFile>
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -193,9 +194,6 @@ void cadastropesquisar::on_pesquisarrButton_3_clicked()
     ui->treeWidget->expandAll();
 }
 
-
-
-
 //BOTÃO DE ATUALIZAR
 void cadastropesquisar::on_atualizarButton_3_clicked()
 {
@@ -235,4 +233,3 @@ void cadastropesquisar::on_clienteButton_2_clicked()
     petScreen->show();
     this->close();
 }
-
