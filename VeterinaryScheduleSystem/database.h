@@ -24,6 +24,7 @@ public:
 private:
     Database() = default;
     std::map<QString, std::vector<QString>> storage;  // Usando QString no map para armazenar dados
+
     QList<QStringList> pets;  // Lista de pets, onde cada QStringList armazena os dados de um pet
 
 };

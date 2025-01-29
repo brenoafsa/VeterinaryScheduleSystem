@@ -20,6 +20,7 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     menu.cpp \
+    petalterar.cpp \
     remarcacao.cpp
 
 HEADERS += \
@@ -33,6 +34,7 @@ HEADERS += \
     database.h \
     mainwindow.h \
     menu.h \
+    petalterar.h \
     remarcacao.h
 
 FORMS += \
@@ -45,6 +47,7 @@ FORMS += \
     consultasdodia.ui \
     mainwindow.ui \
     menu.ui \
+    petalterar.ui \
     remarcacao.ui
 
 # Default rules for deployment.

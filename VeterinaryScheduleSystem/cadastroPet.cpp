@@ -3,6 +3,7 @@
 #include "cadastrocliente.h"
 #include "database.h"
 #include "cadastropesquisar.h"
+#include "petalterar.h"
 #include <QMessageBox>
 #include <QFile>
 #include <QJsonDocument>
@@ -348,6 +349,14 @@ void cadastropet::on_pesquisarButton_2_clicked()
 {
     cadastropesquisar *pesquisarScreen = new cadastropesquisar();
     pesquisarScreen->show();
+    this->close();
+}
+
+
+void cadastropet::on_telaButton_clicked()
+{
+    petalterar *atualizarpetScreen = new petalterar();
+    atualizarpetScreen->show();
     this->close();
 }
 

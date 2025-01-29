@@ -86,9 +86,9 @@ public:
 private slots:
     void on_menuButton_clicked();
     void on_clienteButton_2_clicked();
-    void on_ListarCliente_clicked();
-    void on_AtualizarCliente_clicked();
-    void on_DeletarCliente_clicked();
+    //void on_ListarCliente_clicked();
+    //void on_AtualizarCliente_clicked();
+    //void on_DeletarCliente_clicked();
     void on_cadastrarButton_clicked();
     void on_pesquisarButton_clicked();
 

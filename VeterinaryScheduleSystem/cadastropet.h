@@ -29,6 +29,8 @@ private slots:
 
     void on_pesquisarButton_2_clicked();
 
+    void on_telaButton_clicked();
+
 private:
     Ui::cadastropet *ui;
     QVector<QJsonObject> carregarDados();
