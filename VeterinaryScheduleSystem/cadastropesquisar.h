@@ -28,6 +28,12 @@ private slots:
 
     void on_clienteButton_2_clicked();
 
+    void on_agendamentoButton_2_clicked();
+
+    void on_menuButton_2_clicked();
+
+    void on_consultaButton_2_clicked();
+
 private:
     Ui::cadastropesquisar *ui;
 

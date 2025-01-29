@@ -5,6 +5,8 @@
 #include "cadastropet.h"
 #include "cadastropesquisar.h"
 #include "cadastroalterar.h"  // Incluindo o cabeçalho da nova tela
+#include "agendamento.h"
+#include "consultasdodia.h"
 #include <QMessageBox>
 #include <QStringList>
 #include <QFile>
@@ -153,3 +155,21 @@ void cadastrocliente::salvarTutores(const QVector<QJsonObject> &tutores)
     arquivo.write(doc.toJson());
     arquivo.close();
 }
+
+void cadastrocliente::on_agendamentoButton_clicked()
+{
+    // Botão Agendar Consulta
+    agendamento *agendamentoScreen = new agendamento(); // Cria a tela de agendamento
+    agendamentoScreen->show(); // Exibe a tela de agendamento
+    this->close();             // Fecha a janela do cadastro
+}
+
+
+void cadastrocliente::on_consultaButton_clicked()
+{
+    //Botão Consultas
+    consultasdodia *consultasScreen = new consultasdodia();
+    consultasScreen -> show();
+    this -> close();
+}
+

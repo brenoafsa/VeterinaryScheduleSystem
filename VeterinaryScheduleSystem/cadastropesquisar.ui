@@ -117,66 +117,6 @@ color: #ffffff</string>
      <string>Agendamento</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="produtosButton_2">
-    <property name="geometry">
-     <rect>
-      <x>40</x>
-      <y>420</y>
-      <width>191</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: #C4B4E0;
-font: 700 9pt &quot;System&quot;;
-border-radius: 12px;
-padding: 5px;
-color: #ffffff</string>
-    </property>
-    <property name="text">
-     <string>Produtos</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="relatoriosButton_2">
-    <property name="geometry">
-     <rect>
-      <x>40</x>
-      <y>480</y>
-      <width>191</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: #C4B4E0;
-font: 700 9pt &quot;System&quot;;
-border-radius: 12px;
-padding: 5px;
-color: #ffffff</string>
-    </property>
-    <property name="text">
-     <string>Relatórios</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="sairButton_2">
-    <property name="geometry">
-     <rect>
-      <x>40</x>
-      <y>540</y>
-      <width>191</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: #EE6F6F;
-font: 700 9pt &quot;System&quot;;
-border-radius: 12px;
-padding: 5px;
-color: #ffffff</string>
-    </property>
-    <property name="text">
-     <string>Sair</string>
-    </property>
-   </widget>
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
@@ -197,9 +137,6 @@ color: #ffffff</string>
     </property>
    </widget>
    <zorder>agendamentoButton_2</zorder>
-   <zorder>produtosButton_2</zorder>
-   <zorder>relatoriosButton_2</zorder>
-   <zorder>sairButton_2</zorder>
    <zorder>label_2</zorder>
    <zorder>menuButton_2</zorder>
    <zorder>consultaButton_2</zorder>

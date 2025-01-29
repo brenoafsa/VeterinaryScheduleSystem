@@ -1,5 +1,6 @@
 #include "cadastroalterar.h"
 #include "ui_cadastroalterar.h"
+#include "consultasdodia.h"
 #include <QMessageBox>
 #include <QFile>
 #include <QJsonDocument>
@@ -201,3 +202,12 @@ void cadastroalterar::salvarTutores(const QVector<QJsonObject> &tutores)
     arquivo.write(doc.toJson());
     arquivo.close();
 }
+
+void cadastroalterar::on_consultaButton_clicked()
+{
+    //Botão Consultas
+    consultasdodia *consultasScreen = new consultasdodia();
+    consultasScreen -> show();
+    this -> close();
+}
+

@@ -15,6 +15,11 @@ public:
     explicit consultasdodia(QWidget *parent = nullptr);
     ~consultasdodia();
 
+private slots:
+    void on_menuButton_2_clicked();
+
+    void on_agendamentoButton_2_clicked();
+
 private:
     Ui::consultasdodia *ui;
 };

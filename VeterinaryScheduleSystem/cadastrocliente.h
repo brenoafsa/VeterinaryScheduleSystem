@@ -94,6 +94,10 @@ private slots:
 
     void on_telaButton_clicked();  // Novo slot para troca de tela
 
+    void on_agendamentoButton_clicked();
+
+    void on_consultaButton_clicked();
+
 private:
     Ui::cadastrocliente *ui;
     QPushButton *listarClientesButton;

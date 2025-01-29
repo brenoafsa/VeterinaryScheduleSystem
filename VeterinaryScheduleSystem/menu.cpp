@@ -3,6 +3,7 @@
 #include "agendamento.h"
 #include "cadastrocliente.h"
 #include "mainwindow.h"
+#include "consultasdodia.h"
 
 menu::menu(MainWindow *parent) :
     QDialog(parent),
@@ -46,3 +47,21 @@ void menu::on_sairButton_clicked()
         mainWindow->show(); // Exibe a MainWindow novamente
     }
 }
+
+void menu::on_agendamentoButton_clicked()
+{
+    // Botão Agendar Consulta
+    agendamento *agendamentoScreen = new agendamento(); // Cria a tela de agendamento
+    agendamentoScreen->show(); // Exibe a tela de agendamento
+    this->close();             // Fecha a janela do menu
+}
+
+
+void menu::on_consultaButton_clicked()
+{
+    //Botão Consultas
+    consultasdodia *consultasScreen = new consultasdodia();
+    consultasScreen -> show();
+    this -> close();
+}
+

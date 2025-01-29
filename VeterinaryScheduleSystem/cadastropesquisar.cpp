@@ -3,6 +3,8 @@
 #include "cadastrocliente.h"
 #include "cadastropet.h"
 #include "menu.h"
+#include "agendamento.h"
+#include "consultasdodia.h"
 #include <QFile>
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -233,3 +235,30 @@ void cadastropesquisar::on_clienteButton_2_clicked()
     petScreen->show();
     this->close();
 }
+
+void cadastropesquisar::on_agendamentoButton_2_clicked()
+{
+    // Botão Agendar Consulta
+    agendamento *agendamentoScreen = new agendamento(); // Cria a tela de agendamento
+    agendamentoScreen->show(); // Exibe a tela de agendamento
+    this->close();             // Fecha a janela de pesquisa
+}
+
+
+void cadastropesquisar::on_menuButton_2_clicked()
+{
+    // Botão voltar ao menu
+    menu *menuScreen = new menu(); // Cria a tela de menu
+    menuScreen->show(); // Exibe a tela de menu
+    this->close();             // Fecha a janela atual
+}
+
+
+void cadastropesquisar::on_consultaButton_2_clicked()
+{
+    //Botão Consultas
+    consultasdodia *consultasScreen = new consultasdodia();
+    consultasScreen -> show();
+    this -> close();
+}
+

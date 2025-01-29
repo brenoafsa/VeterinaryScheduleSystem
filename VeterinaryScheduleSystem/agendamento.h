@@ -20,6 +20,8 @@ private slots:
 
     void on_remarcacaoButton_clicked();
 
+    void on_consultaButton_clicked();
+
 private:
     Ui::agendamento *ui;
 };

@@ -4,6 +4,9 @@
 #include "database.h"
 #include "cadastropesquisar.h"
 #include "petalterar.h"
+#include "menu.h"
+#include "agendamento.h"
+#include "consultasdodia.h"
 #include <QMessageBox>
 #include <QFile>
 #include <QJsonDocument>
@@ -358,5 +361,32 @@ void cadastropet::on_telaButton_clicked()
     petalterar *atualizarpetScreen = new petalterar();
     atualizarpetScreen->show();
     this->close();
+}
+
+
+void cadastropet::on_menuButton_clicked()
+{
+    // Botão voltar Menu
+    menu *menuScreen = new menu(); // Cria a tela menu
+    menuScreen->show(); // Exibe a tela de menu
+    this->close();             // Fecha a janela atual
+}
+
+
+void cadastropet::on_agendamentoButton_clicked()
+{
+    // Botão Agendar Consulta
+    agendamento *agendamentoScreen = new agendamento(); // Cria a tela de agendamento
+    agendamentoScreen->show(); // Exibe a tela de agendamento
+    this->close();             // Fecha a janela do cadastro pet
+}
+
+
+void cadastropet::on_consultaButton_clicked()
+{
+    //Botão Consultas
+    consultasdodia *consultasScreen = new consultasdodia();
+    consultasScreen -> show();
+    this -> close();
 }
 

@@ -1,6 +1,8 @@
 #include "petalterar.h"
 #include "ui_petalterar.h"
 #include "menu.h"
+#include "consultasdodia.h"
+#include "agendamento.h"
 #include <QMessageBox>
 #include <QFile>
 #include <QJsonDocument>
@@ -204,5 +206,23 @@ void petalterar::on_menuButton_clicked()
     menu *menuScreen = new menu();
     menuScreen -> show();
     this-> close();
+}
+
+
+void petalterar::on_consultaButton_clicked()
+{
+    //Botão Consultas
+    consultasdodia *consultasScreen = new consultasdodia();
+    consultasScreen -> show();
+    this -> close();
+}
+
+
+void petalterar::on_agendamentoButton_clicked()
+{
+    // Botão Agendar Consulta
+    agendamento *agendamentoScreen = new agendamento(); // Cria a tela de agendamento
+    agendamentoScreen->show(); // Exibe a tela de agendamento
+    this->close();             // Fecha a janela do menu
 }
 

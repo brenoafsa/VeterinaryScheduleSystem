@@ -31,6 +31,12 @@ private slots:
 
     void on_telaButton_clicked();
 
+    void on_menuButton_clicked();
+
+    void on_agendamentoButton_clicked();
+
+    void on_consultaButton_clicked();
+
 private:
     Ui::cadastropet *ui;
     QVector<QJsonObject> carregarDados();

@@ -24,6 +24,10 @@ private slots:
 
     void on_menuButton_clicked();
 
+    void on_consultaButton_clicked();
+
+    void on_agendamentoButton_clicked();
+
 private:
     Ui::petalterar *ui;
 

@@ -2,6 +2,7 @@
 #include "ui_remarcacao.h"
 #include "agendamento.h"
 #include "menu.h"
+#include "consultasdodia.h"
 
 remarcacao::remarcacao(QWidget *parent)
     : QDialog(parent)
@@ -30,5 +31,23 @@ void remarcacao::on_menuButton_clicked()
     menu *menuScreen = new menu();
     menuScreen->show();         // Exibe a janela do menu
     this->close();              // Fecha a tela de agendamento
+}
+
+
+void remarcacao::on_agendamentoButton_clicked()
+{
+    // Botão Agendar Consulta
+    agendamento *agendamentoScreen = new agendamento(); // Cria a tela de agendamento
+    agendamentoScreen->show(); // Exibe a tela de agendamento
+    this->close();             // Fecha a janela do menu
+}
+
+
+void remarcacao::on_consultaButton_clicked()
+{
+    //Botão Consultas
+    consultasdodia *consultasScreen = new consultasdodia();
+    consultasScreen -> show();
+    this -> close();
 }
 

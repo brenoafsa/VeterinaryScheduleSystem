@@ -21,6 +21,8 @@ private slots:
     void on_atualizarClienteButton_clicked();
     void on_deletarClienteButton_clicked();
 
+    void on_consultaButton_clicked();
+
 private:
     Ui::cadastroalterar *ui;
 

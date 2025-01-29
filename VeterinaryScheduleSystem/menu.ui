@@ -42,27 +42,11 @@
      <string>Cadastro</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_7">
-    <property name="geometry">
-     <rect>
-      <x>550</x>
-      <y>330</y>
-      <width>211</width>
-      <height>101</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: #C7C0D5; border-radius: 10px; color: #FFFFFF; font-size: 30px;</string>
-    </property>
-    <property name="text">
-     <string>Relatórios</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="pushButton_8">
     <property name="geometry">
      <rect>
-      <x>550</x>
-      <y>470</y>
+      <x>760</x>
+      <y>350</y>
       <width>211</width>
       <height>101</height>
      </rect>
@@ -90,38 +74,6 @@ Consulta</string>
     <property name="text">
      <string>Consultas 
 do Dia</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_10">
-    <property name="geometry">
-     <rect>
-      <x>950</x>
-      <y>330</y>
-      <width>211</width>
-      <height>101</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: #C7C0D5; border-radius: 10px; color: #FFFFFF; font-size: 30px;</string>
-    </property>
-    <property name="text">
-     <string>Produtos</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_11">
-    <property name="geometry">
-     <rect>
-      <x>950</x>
-      <y>470</y>
-      <width>211</width>
-      <height>101</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: #C7C0D5; border-radius: 10px; color: #FFFFFF; font-size: 30px;</string>
-    </property>
-    <property name="text">
-     <string>Prontuários</string>
     </property>
    </widget>
    <widget class="QWidget" name="widget_3" native="true">
@@ -205,46 +157,6 @@ color: #ffffff</string>
       <string>Agendamento</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="produtosButton">
-     <property name="geometry">
-      <rect>
-       <x>40</x>
-       <y>420</y>
-       <width>191</width>
-       <height>51</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: #C4B4E0;
-font: 700 9pt &quot;System&quot;;
-border-radius: 12px;
-padding: 5px;
-color: #ffffff</string>
-     </property>
-     <property name="text">
-      <string>Produtos</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="relatoriosButton">
-     <property name="geometry">
-      <rect>
-       <x>40</x>
-       <y>480</y>
-       <width>191</width>
-       <height>51</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: #C4B4E0;
-font: 700 9pt &quot;System&quot;;
-border-radius: 12px;
-padding: 5px;
-color: #ffffff</string>
-     </property>
-     <property name="text">
-      <string>Relatórios</string>
-     </property>
-    </widget>
     <widget class="QPushButton" name="sairButton">
      <property name="geometry">
       <rect>
@@ -315,8 +227,6 @@ color: #ffffff
      </property>
     </widget>
     <zorder>agendamentoButton</zorder>
-    <zorder>produtosButton</zorder>
-    <zorder>relatoriosButton</zorder>
     <zorder>sairButton</zorder>
     <zorder>label</zorder>
     <zorder>consultaButton_2</zorder>
