@@ -129,7 +129,6 @@ void consultasdodia::carregarConsultasDoDia() {
         }
 
         QString dataFormatada = date.toString("dd-MM-yyyy"); // Convertendo para o formato padronizado
-        qDebug() << "Consulta em:" << dataFormatada;
 
         if (dataFormatada == dataAtual) {
             QTreeWidgetItem *item = new QTreeWidgetItem(ui->treeWidget);
