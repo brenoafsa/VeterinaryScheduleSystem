@@ -15,6 +15,7 @@ SOURCES += \
     cadastroconsulta.cpp \
     cadastropesquisar.cpp \
     cadastropet.cpp \
+    cancelarconsulta.cpp \
     consultasdodia.cpp \
     database.cpp \
     main.cpp \
@@ -30,6 +31,7 @@ HEADERS += \
     cadastroconsulta.h \
     cadastropesquisar.h \
     cadastropet.h \
+    cancelarconsulta.h \
     consultasdodia.h \
     database.h \
     mainwindow.h \
@@ -44,6 +46,7 @@ FORMS += \
     cadastroconsulta.ui \
     cadastropesquisar.ui \
     cadastropet.ui \
+    cancelarconsulta.ui \
     consultasdodia.ui \
     mainwindow.ui \
     menu.ui \

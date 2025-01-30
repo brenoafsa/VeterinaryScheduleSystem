@@ -1,33 +1,32 @@
-#ifndef REMARCACAO_H
-#define REMARCACAO_H
+#ifndef CANCELARCONSULTA_H
+#define CANCELARCONSULTA_H
 
 #include <QDialog>
 
 namespace Ui {
-class remarcacao;
+class cancelarconsulta;
 }
 
-class remarcacao : public QDialog
+class cancelarconsulta : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit remarcacao(QWidget *parent = nullptr);
-    ~remarcacao();
+    explicit cancelarconsulta(QWidget *parent = nullptr);
+    ~cancelarconsulta();
 
 private slots:
     void on_novaconsultaButton_clicked();
     void on_menuButton_clicked();
-    void on_alterarButton_clicked(); // Já existente, onde fizemos a adaptação
+    void on_apagarButton_clicked(); // Já existente, onde fizemos a adaptação
     void on_consultaButton_clicked();
-    void on_cancelarconsultaButton_clicked();
     void on_nomePet_cursorPositionChanged(int arg1, int arg2);
 
 private:
-    Ui::remarcacao *ui;
+    Ui::cancelarconsulta *ui;
 
     // Função auxiliar para exibir uma caixa de erro
     void showErrorDialog(const QString &message);
 };
 
-#endif // REMARCACAO_H
+#endif // CANCELARCONSULTA_H

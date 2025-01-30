@@ -1,9 +1,8 @@
-#include "remarcacao.h"
-#include "ui_remarcacao.h"
+#include "cancelarconsulta.h"
+#include "ui_cancelarconsulta.h"
 #include "agendamento.h"
 #include "menu.h"
 #include "consultasdodia.h"
-#include "cancelarconsulta.h"
 #include <QDateEdit>
 #include <QTimeEdit>
 #include <QJsonDocument>
@@ -12,19 +11,19 @@
 #include <QFile>
 #include <QMessageBox>
 
-remarcacao::remarcacao(QWidget *parent)
+cancelarconsulta::cancelarconsulta(QWidget *parent)
     : QDialog(parent)
-    , ui(new Ui::remarcacao)
+    , ui(new Ui::cancelarconsulta)
 {
     ui->setupUi(this);
 }
 
-remarcacao::~remarcacao()
+cancelarconsulta::~cancelarconsulta()
 {
     delete ui;
 }
 
-void remarcacao::on_novaconsultaButton_clicked()
+void cancelarconsulta::on_novaconsultaButton_clicked()
 {
     // Botão Nova consulta
     agendamento *agendamentoScreen = new agendamento();
@@ -32,7 +31,7 @@ void remarcacao::on_novaconsultaButton_clicked()
     this->close();          // Fecha a janela atual
 }
 
-void remarcacao::on_menuButton_clicked()
+void cancelarconsulta::on_menuButton_clicked()
 {
     // Botão para retornar ao menu
     menu *menuScreen = new menu();
@@ -40,17 +39,14 @@ void remarcacao::on_menuButton_clicked()
     this->close();              // Fecha a tela de remarcação
 }
 
-void remarcacao::on_alterarButton_clicked()
+void cancelarconsulta::on_apagarButton_clicked()
 {
-    // Lógica para buscar e atualizar consulta (remarcação)
-    QString nomePet = ui->nomePet->text().trimmed().toLower();  // Nome do pet
-    QString cpfTutor = ui->cpfTutor->text().remove(".").remove("-").trimmed();  // CPF do tutor
-    QString dataConsulta = ui->dateEdit->date().toString("dd-MM-yyyy");  // Data da consulta
-    QString horaConsulta = ui->timeEdit->time().toString("HH:mm");  // Hora da consulta
-    QString veterinario = ui->veterinarioEdit->text().trimmed();  // Veterinário
+    // Lógica para buscar e apagar consulta
+    QString nomePet = ui->nomePet_2->text().trimmed().toLower();  // Nome do pet
+    QString cpfTutor = ui->cpfTutor_2->text().remove(".").remove("-").trimmed();  // CPF do tutor
 
     // Verificação de campos vazios
-    if (nomePet.isEmpty() || cpfTutor.isEmpty() || dataConsulta.isEmpty() || horaConsulta.isEmpty() || veterinario.isEmpty()) {
+    if (nomePet.isEmpty() || cpfTutor.isEmpty()) {
         showErrorDialog("Por favor, preencha todos os campos.");
         return;
     }
@@ -67,20 +63,16 @@ void remarcacao::on_alterarButton_clicked()
     file.close();
 
     bool consultaEncontrada = false;
-    for (QJsonValueRef consultaValue : consultasArray) {  // Alterado QJsonValue para QJsonValueRef
-        QJsonObject consulta = consultaValue.toObject();
+    for (int i = 0; i < consultasArray.size(); ++i) {
+        QJsonObject consulta = consultasArray[i].toObject();
 
         QString cpfConsulta = consulta["cpf_tutor"].toString();
         QString nomePetConsulta = consulta["nome_pet"].toString().toLower();
 
         // Se encontrar uma consulta com o mesmo CPF e nome do pet
         if (cpfConsulta == cpfTutor && nomePetConsulta == nomePet) {
-            consulta["data"] = dataConsulta;
-            consulta["hora"] = horaConsulta;
-            consulta["veterinario"] = veterinario;
-
+            consultasArray.removeAt(i);  // Remove a consulta encontrada
             consultaEncontrada = true;
-            consultaValue = consulta; // Atualiza a referência com os novos dados
             break;
         }
     }
@@ -88,7 +80,7 @@ void remarcacao::on_alterarButton_clicked()
     // Se encontrou a consulta, salvar as mudanças
     if (consultaEncontrada) {
         if (!file.open(QIODevice::WriteOnly | QIODevice::Truncate)) {  // Abrir para escrever e truncar o arquivo
-            showErrorDialog("Erro ao salvar a remarcação.");
+            showErrorDialog("Erro ao salvar as mudanças.");
             return;
         }
 
@@ -101,15 +93,14 @@ void remarcacao::on_alterarButton_clicked()
         successBox.setStyleSheet("QMessageBox { background-color: #D9048E; color: white; font-size: 14px; }"
                                  "QPushButton { background-color: #F26DCF; color: white; border-radius: 5px; padding: 5px; }"
                                  "QPushButton:hover { background-color: #A6036D; }");
-        successBox.setText("Consulta remarcada com sucesso!");
+        successBox.setText("Consulta apagada com sucesso!");
         successBox.exec();
     } else {
         showErrorDialog("Consulta não encontrada para este pet e tutor.");
     }
 }
 
-
-void remarcacao::on_consultaButton_clicked()
+void cancelarconsulta::on_consultaButton_clicked()
 {
     // Botão Consultas
     consultasdodia *consultasScreen = new consultasdodia();
@@ -117,7 +108,7 @@ void remarcacao::on_consultaButton_clicked()
     this->close();
 }
 
-void remarcacao::showErrorDialog(const QString &message)
+void cancelarconsulta::showErrorDialog(const QString &message)
 {
     QMessageBox errorBox;
     errorBox.setStyleSheet("QMessageBox { background-color: #D9048E; color: white; font-size: 14px; }"
@@ -126,12 +117,3 @@ void remarcacao::showErrorDialog(const QString &message)
     errorBox.setText(message);
     errorBox.exec();
 }
-
-
-void remarcacao::on_cancelarconsultaButton_clicked()
-{
-    cancelarconsulta *cancelarconsultaScreen = new cancelarconsulta();
-    cancelarconsultaScreen->show();
-    this->close();
-}
-
