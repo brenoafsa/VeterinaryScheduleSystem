@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(255, 255, 255);</string>
+  </property>
   <widget class="QWidget" name="widget" native="true">
    <property name="geometry">
     <rect>
@@ -38,7 +41,7 @@
      <string notr="true">font: 30pt &quot;Garamond&quot;; color: #ffffff</string>
     </property>
     <property name="text">
-     <string>Consultas do dia</string>
+     <string>Consulta</string>
     </property>
    </widget>
   </widget>
@@ -57,26 +60,6 @@
    <property name="styleSheet">
     <string notr="true">background-color: #C7C0D5; border-radius: 20px</string>
    </property>
-   <widget class="QPushButton" name="cancelarButton_2">
-    <property name="geometry">
-     <rect>
-      <x>840</x>
-      <y>420</y>
-      <width>111</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: #EE6F6F;
-font: 700 15pt &quot;System&quot;;
-border-radius: 15px;
-padding: 5px;
-color: #ffffff</string>
-    </property>
-    <property name="text">
-     <string>CANCELAR</string>
-    </property>
-   </widget>
    <widget class="QLineEdit" name="lineEdit">
     <property name="geometry">
      <rect>
@@ -88,6 +71,7 @@ color: #ffffff</string>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);
 border-radius: 10px;</string>
     </property>
     <property name="text">
@@ -121,7 +105,7 @@ color: #ffffff</string>
     <property name="geometry">
      <rect>
       <x>40</x>
-      <y>90</y>
+      <y>100</y>
       <width>771</width>
       <height>351</height>
      </rect>
@@ -136,28 +120,33 @@ color: #ffffff</string>
     <property name="geometry">
      <rect>
       <x>40</x>
-      <y>60</y>
+      <y>59</y>
       <width>771</width>
-      <height>31</height>
+      <height>37</height>
      </rect>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: #9B88BF; border-radius: 15px</string>
     </property>
-    <widget class="QLabel" name="titulo_3">
+    <widget class="QLabel" name="label">
      <property name="geometry">
       <rect>
        <x>280</x>
-       <y>-10</y>
-       <width>261</width>
-       <height>51</height>
+       <y>0</y>
+       <width>211</width>
+       <height>31</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <pointsize>16</pointsize>
+      </font>
+     </property>
      <property name="styleSheet">
-      <string notr="true">font: 20pt &quot;Garamond&quot;; color: #ffffff</string>
+      <string notr="true">color: rgb(255, 255, 255);</string>
      </property>
      <property name="text">
-      <string>Consultas do dia</string>
+      <string>Consultas do Dia</string>
      </property>
     </widget>
    </widget>

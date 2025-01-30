@@ -29,7 +29,14 @@ agendamento::agendamento(QWidget *parent)
     ui->dateEdit->setDate(QDate::currentDate()); // Define a data atual como padrão
 
     // Configurar o campo de hora
-    ui->timeEdit->setTime(QTime::currentTime()); // Define o horário atual como padrão
+    ui->timeEdit->setDisplayFormat("HH:mm"); // Garante que horas e minutos aparecem
+    ui->timeEdit->setTime(QTime::currentTime()); // Define a hora atual
+    ui->timeEdit->setMinimumTime(QTime(0, 0));  // Permite valores desde 00:00
+    ui->timeEdit->setMaximumTime(QTime(23, 59)); // Permite até 23:59
+    ui->timeEdit->setWrapping(true); // Permite rolagem de valores
+    ui->timeEdit->setButtonSymbols(QAbstractSpinBox::UpDownArrows);
+
+
 }
 
 agendamento::~agendamento()

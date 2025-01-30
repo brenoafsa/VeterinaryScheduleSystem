@@ -117,3 +117,17 @@ void cancelarconsulta::showErrorDialog(const QString &message)
     errorBox.setText(message);
     errorBox.exec();
 }
+
+void cancelarconsulta::on_cancelarButton_2_clicked()
+{
+
+
+    ui->nomePet_2->clear();
+    ui->cpfTutor_2->clear();
+    ui->dateEdit_2->setDate(QDate::currentDate()); // Define a data para o dia atual
+    ui->timeEdit_2->setTime(QTime::currentTime()); // Define o horário para o atual
+    ui->veterinarioEdit_2->clear();
+
+}
+
+

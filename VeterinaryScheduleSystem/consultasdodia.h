@@ -20,6 +20,11 @@ private slots:
 
     void on_agendamentoButton_2_clicked();
 
+    void on_pesquisarrButton_3_clicked();
+
+    void carregarConsultasDoDia(); // Método para carregar consultas do dia
+
+
 private:
     Ui::consultasdodia *ui;
 };

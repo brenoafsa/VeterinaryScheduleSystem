@@ -24,14 +24,9 @@ int main(int argc, char *argv[]) {
     clientDataBase& clientDB = clientDataBase::getInstance();
 
     // Adicionando clientes de exemplo (opcional, para teste)
-    clientDataBase::ClientData cliente1 = {"João Silva", "12345678900", "joao@gmail.com", "Rua A, 123", "99999-1111"};
-    clientDataBase::ClientData cliente2 = {"Maria Oliveira", "98765432100", "maria@hotmail.com", "Avenida B, 456", "98888-2222"};
 
-    clientDB.addClient(cliente1);
-    clientDB.addClient(cliente2);
 
     // Exibe os clientes cadastrados no terminal
-    cout << "Clientes cadastrados:" << endl;
     for (const auto& cliente : clientDB.getClients()) {
         cout << "Cliente: " << cliente.nome.toStdString()
         << ", CPF: " << cliente.cpf.toStdString()

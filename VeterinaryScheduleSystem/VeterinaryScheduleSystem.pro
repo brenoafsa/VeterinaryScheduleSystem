@@ -12,7 +12,6 @@ SOURCES += \
     agendamento.cpp \
     cadastroalterar.cpp \
     cadastrocliente.cpp \
-    cadastroconsulta.cpp \
     cadastropesquisar.cpp \
     cadastropet.cpp \
     cancelarconsulta.cpp \
@@ -28,7 +27,6 @@ HEADERS += \
     agendamento.h \
     cadastroalterar.h \
     cadastrocliente.h \
-    cadastroconsulta.h \
     cadastropesquisar.h \
     cadastropet.h \
     cancelarconsulta.h \
@@ -43,7 +41,6 @@ FORMS += \
     agendamento.ui \
     cadastroalterar.ui \
     cadastrocliente.ui \
-    cadastroconsulta.ui \
     cadastropesquisar.ui \
     cadastropet.ui \
     cancelarconsulta.ui \
