@@ -214,10 +214,10 @@ color: rgb(255, 255, 255);</string>
    <widget class="QTreeWidget" name="treeWidget">
     <property name="geometry">
      <rect>
-      <x>610</x>
+      <x>465</x>
       <y>200</y>
-      <width>256</width>
-      <height>192</height>
+      <width>621</width>
+      <height>341</height>
      </rect>
     </property>
     <column>

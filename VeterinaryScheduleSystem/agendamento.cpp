@@ -4,6 +4,7 @@
 #include "remarcacao.h"
 #include "consultasdodia.h"
 #include "cancelarconsulta.h"
+#include "cadastrocliente.h"
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QJsonArray>
@@ -204,3 +205,12 @@ void agendamento::on_pushButton_11_clicked()
     ui->comboBox->setCurrentIndex(0); // Define o primeiro horário como padrão
     ui->lineEdit->clear();
 }
+
+void agendamento::on_pushButton_6_clicked()
+{
+    // Botão Cadastro Cliente
+    cadastrocliente *cadastroScreen = new cadastrocliente(); // Cria a tela de cadastro
+    cadastroScreen->show(); // Exibe a tela de cadastro
+    this->close();
+}
+

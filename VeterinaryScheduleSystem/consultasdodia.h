@@ -25,6 +25,8 @@ private slots:
     void carregarConsultasDoDia(); // Método para carregar consultas do dia
 
 
+    void on_pushButton_6_clicked();
+
 private:
     Ui::consultasdodia *ui;
 };

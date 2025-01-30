@@ -25,6 +25,8 @@ private slots:
 
     void on_cancelarButton_clicked();
 
+    void on_pushButton_6_clicked();
+
 private:
     Ui::remarcacao *ui;
 

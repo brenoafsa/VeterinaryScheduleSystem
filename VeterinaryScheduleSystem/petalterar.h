@@ -30,6 +30,8 @@ private slots:
 
     void on_cancelarButton_2_clicked();
 
+    void on_pushButton_6_clicked();
+
 private:
     Ui::petalterar *ui;
 

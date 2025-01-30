@@ -1,6 +1,7 @@
 #include "consultasdodia.h"
 #include "ui_consultasdodia.h"
 #include "menu.h"
+#include "cadastrocliente.h"
 #include "agendamento.h"
 #include <QFile>
 #include <QJsonDocument>
@@ -182,5 +183,14 @@ void consultasdodia::on_pesquisarrButton_3_clicked()
         }
     }
 
+}
+
+
+void consultasdodia::on_pushButton_6_clicked()
+{
+    // Botão Cadastro Cliente
+    cadastrocliente *cadastroScreen = new cadastrocliente(); // Cria a tela de cadastro
+    cadastroScreen->show(); // Exibe a tela de cadastro
+    this->close();          // Fecha a janela do menu
 }
 

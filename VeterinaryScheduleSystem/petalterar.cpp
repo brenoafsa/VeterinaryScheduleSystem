@@ -1,6 +1,7 @@
 #include "petalterar.h"
 #include "ui_petalterar.h"
 #include "menu.h"
+#include "cadastrocliente.h"
 #include "consultasdodia.h"
 #include "agendamento.h"
 #include <QMessageBox>
@@ -237,5 +238,14 @@ void petalterar::on_cancelarButton_2_clicked()
     ui->racaPet->clear();
 
 
+}
+
+
+void petalterar::on_pushButton_6_clicked()
+{
+    // Botão Cadastro Cliente
+    cadastrocliente *cadastroScreen = new cadastrocliente(); // Cria a tela de cadastro
+    cadastroScreen->show(); // Exibe a tela de cadastro
+    this->close();          // Fecha a janela do menu
 }
 

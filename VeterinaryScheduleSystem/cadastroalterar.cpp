@@ -1,6 +1,9 @@
 #include "cadastroalterar.h"
 #include "ui_cadastroalterar.h"
 #include "consultasdodia.h"
+#include "cadastrocliente.h"
+#include "menu.h"
+#include "agendamento.h"
 #include <QMessageBox>
 #include <QFile>
 #include <QJsonDocument>
@@ -211,6 +214,14 @@ void cadastroalterar::on_consultaButton_clicked()
     this -> close();
 }
 
+void cadastroalterar::on_pushButton_6_clicked()
+{
+    // Botão Cadastro Cliente
+    cadastrocliente *cadastroclienteScreen = new cadastrocliente(); // Cria a tela de cadastro
+    cadastroclienteScreen->show(); // Exibe a tela de cadastro
+    this->close();          // Fecha a janela do menu
+}
+
 
 void cadastroalterar::on_cancelarButton_clicked()
 {
@@ -219,5 +230,21 @@ void cadastroalterar::on_cancelarButton_clicked()
     ui->enderecoTutor->clear();
     ui->nomeTutor->clear();
     ui->telefoneTutor->clear();
+}
+
+
+void cadastroalterar::on_menuButton_clicked()
+{
+    menu *menuScreen = new menu(); // Cria a tela de cadastro
+    menuScreen->show(); // Exibe a tela de cadastro
+    this->close();
+}
+
+
+void cadastroalterar::on_agendamentoButton_clicked()
+{
+    agendamento *agendamentoScreen = new agendamento(); // Cria a tela de cadastro
+    agendamentoScreen->show(); // Exibe a tela de cadastro
+    this->close();
 }
 

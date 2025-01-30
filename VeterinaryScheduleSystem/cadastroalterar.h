@@ -24,6 +24,11 @@ private slots:
     void on_consultaButton_clicked();
 
     void on_cancelarButton_clicked();
+    void on_pushButton_6_clicked();
+
+    void on_menuButton_clicked();
+
+    void on_agendamentoButton_clicked();
 
 private:
     Ui::cadastroalterar *ui;

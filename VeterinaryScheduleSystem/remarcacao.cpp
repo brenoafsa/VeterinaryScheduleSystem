@@ -4,6 +4,7 @@
 #include "menu.h"
 #include "consultasdodia.h"
 #include "cancelarconsulta.h"
+#include "cadastrocliente.h"
 #include <QDateEdit>
 #include <QTimeEdit>
 #include <QJsonDocument>
@@ -159,5 +160,14 @@ void remarcacao::on_cancelarButton_clicked()
     ui->dateEdit->setDate(QDate::currentDate()); // Define a data para o dia atual
     ui->comboBox->setCurrentIndex(0); // Define o primeiro horário (7:30)
     ui->veterinarioEdit->clear();
+}
+
+
+void remarcacao::on_pushButton_6_clicked()
+{
+    // Botão Cadastro Cliente
+    cadastrocliente *cadastroScreen = new cadastrocliente(); // Cria a tela de cadastro
+    cadastroScreen->show(); // Exibe a tela de cadastro
+    this->close();
 }
 

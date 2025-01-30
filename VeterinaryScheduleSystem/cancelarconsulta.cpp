@@ -2,6 +2,7 @@
 #include "ui_cancelarconsulta.h"
 #include "agendamento.h"
 #include "menu.h"
+#include "cadastrocliente.h"
 #include "consultasdodia.h"
 #include "remarcacao.h"
 #include <QDateEdit>
@@ -188,5 +189,14 @@ void cancelarconsulta::on_agendamentoButton_2_clicked()
     agendamento *agendamentoScreen = new agendamento();
     agendamentoScreen -> show();
     this -> close();
+}
+
+
+void cancelarconsulta::on_pushButton_6_clicked()
+{
+    // Botão Cadastro Cliente
+    cadastrocliente *cadastroScreen = new cadastrocliente(); // Cria a tela de cadastro
+    cadastroScreen->show(); // Exibe a tela de cadastro
+    this->close();          // Fecha a janela do menu
 }
 

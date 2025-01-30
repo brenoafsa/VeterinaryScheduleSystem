@@ -71,14 +71,14 @@ padding: 5px;
 color: #ffffff</string>
     </property>
     <property name="text">
-     <string>Menu</string>
+     <string>Consultas Gerais</string>
     </property>
    </widget>
    <widget class="QPushButton" name="consultaButton">
     <property name="geometry">
      <rect>
       <x>40</x>
-      <y>300</y>
+      <y>360</y>
       <width>191</width>
       <height>51</height>
      </rect>
@@ -98,7 +98,7 @@ color: #ffffff</string>
     <property name="geometry">
      <rect>
       <x>40</x>
-      <y>360</y>
+      <y>420</y>
       <width>191</width>
       <height>51</height>
      </rect>
@@ -133,10 +133,40 @@ color: #ffffff</string>
      <bool>true</bool>
     </property>
    </widget>
+   <widget class="QPushButton" name="pushButton_6">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>300</y>
+      <width>191</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>System</family>
+      <pointsize>9</pointsize>
+      <italic>false</italic>
+      <bold>true</bold>
+      <underline>true</underline>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: #C4B4E0;
+font: 700 9pt &quot;System&quot;;
+border-radius: 12px;
+padding: 5px;
+color: rgb(255, 255, 255);</string>
+    </property>
+    <property name="text">
+     <string>Cadastro</string>
+    </property>
+   </widget>
    <zorder>agendamentoButton</zorder>
    <zorder>label_2</zorder>
    <zorder>menuButton</zorder>
    <zorder>consultaButton</zorder>
+   <zorder>pushButton_6</zorder>
   </widget>
   <widget class="QWidget" name="data_background" native="true">
    <property name="geometry">
