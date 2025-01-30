@@ -24,6 +24,38 @@ menu::menu(MainWindow *parent) :
     headers << "Pet" << "Tutor" << "Data" << "Hora" << "Veterinário";  // Adicionando "Data" no header
     ui->treeWidget->setHeaderLabels(headers);
 
+    ui->treeWidget->setStyleSheet(
+        "QTreeWidget {"
+        "   background-color: #f5f5f5;"
+        "   border-radius: 10px;"
+        "   font-size: 14px;"
+        "   color: #333;"
+        "}"
+        "QTreeWidget::item {"
+        "   padding: 10px;"
+        "   border-bottom: 1px solid #ccc;"
+        "}"
+        "QTreeWidget::item:selected {"
+        "   background-color: #C4B4E0;"
+        "   color: white;"
+        "}"
+        );
+    ui->treeWidget->header()->setStyleSheet(
+        "QHeaderView::section {"
+        "   background-color: #9B88BF;"
+        "   color: white;"
+        "   padding: 5px;"
+        "   border-radius: 5px;"
+        "}"
+        );
+    ui->treeWidget->setExpandsOnDoubleClick(true);
+    ui->treeWidget->setColumnWidth(0, 250); // Ajuste conforme necessário
+
+
+
+
+
+
     carregarConsultas();
 }
 
@@ -51,6 +83,10 @@ QVector<QJsonObject> menu::carregarTutores()
     return tutores;
 }
 
+
+
+
+
 void menu::carregarConsultas() {
     QFile file("consultas.json");
     if (!file.open(QIODevice::ReadOnly)) {
@@ -74,10 +110,18 @@ void menu::carregarConsultas() {
 
     ui->treeWidget->clear(); // Limpar lista antes de atualizar
 
+    // Lista de meses em ordem
+    QStringList mesesOrdenados = {
+        "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
+        "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"
+    };
+
+    // Mapa para organizar os dados: meses > dias > consultas
+    QMap<QString, QMap<QString, QList<QJsonObject>>> consultasOrganizadas;
+
     for (const QJsonValue &value : consultas) {
         QJsonObject consulta = value.toObject();
 
-        // Verificar se os campos existem
         if (!consulta.contains("nome_pet") || !consulta.contains("cpf_tutor") ||
             !consulta.contains("hora") || !consulta.contains("veterinario") || !consulta.contains("data")) {
             qWarning("Consulta com campos ausentes no JSON.");
@@ -85,39 +129,61 @@ void menu::carregarConsultas() {
         }
 
         QString dataConsulta = consulta["data"].toString();
-
-        // Normalizar data para o formato "dd-MM-yyyy"
-        QDate date = QDate::fromString(dataConsulta, "dd-MM-yyyy"); // Formato com "-"
+        QDate date = QDate::fromString(dataConsulta, "dd-MM-yyyy");
 
         if (!date.isValid()) {
             qWarning() << "Data inválida:" << dataConsulta;
             continue;
         }
 
-        QString dataFormatada = date.toString("dd-MM-yyyy");
+        QString mes = mesesOrdenados[date.month() - 1]; // Nome do mês em português
+        QString dia = date.toString("dd");             // Dia do mês
 
-        // Buscar o nome do tutor pelo CPF
-        QString cpfTutor = consulta["cpf_tutor"].toString();
-        QString nomeTutor = "Desconhecido"; // Default caso não encontre o tutor
-
-        for (const QJsonObject &tutor : tutores) {
-            if (tutor["cpf"].toString() == cpfTutor) {
-                nomeTutor = tutor["nome"].toString();
-                break; // Encontrou o tutor, pode sair do loop
-            }
-        }
-
-        // Criar um item no treeWidget
-        QTreeWidgetItem *item = new QTreeWidgetItem(ui->treeWidget);
-        item->setText(0, consulta["nome_pet"].toString());       // Pet
-        item->setText(1, nomeTutor);                            // Tutor (nome do tutor)
-        item->setText(2, dataFormatada);                        // Data da consulta
-        item->setText(3, consulta["hora"].toString());          // Hora da consulta
-        item->setText(4, consulta["veterinario"].toString());  // Veterinário
-        ui->treeWidget->addTopLevelItem(item);  // Adiciona o item ao QTreeWidget
+        consultasOrganizadas[mes][dia].append(consulta);
     }
 
-    ui->treeWidget->viewport()->update(); // Forçar atualização da interface
+    // Preencher o TreeWidget com os dados organizados
+    for (const QString &mes : mesesOrdenados) { // Usar ordem fixa dos meses
+        if (!consultasOrganizadas.contains(mes)) {
+            continue; // Ignorar meses que não têm consultas
+        }
+
+        // Criar item para o mês
+        QTreeWidgetItem *mesItem = new QTreeWidgetItem(ui->treeWidget);
+        mesItem->setText(0, mes);
+
+        const QMap<QString, QList<QJsonObject>> &dias = consultasOrganizadas[mes];
+        for (const QString &dia : dias.keys()) {
+            // Criar item para o dia
+            QTreeWidgetItem *diaItem = new QTreeWidgetItem(mesItem);
+            diaItem->setText(0, "Dia " + dia);
+
+            const QList<QJsonObject> &consultasDoDia = dias[dia];
+            for (const QJsonObject &consulta : consultasDoDia) {
+                // Criar item para a consulta
+                QTreeWidgetItem *consultaItem = new QTreeWidgetItem(diaItem);
+                QString cpfTutor = consulta["cpf_tutor"].toString();
+                QString nomeTutor = "Desconhecido";
+
+                // Buscar nome do tutor pelo CPF
+                for (const QJsonObject &tutor : tutores) {
+                    if (tutor["cpf"].toString() == cpfTutor) {
+                        nomeTutor = tutor["nome"].toString();
+                        break;
+                    }
+                }
+
+                // Preencher colunas do item da consulta
+                consultaItem->setText(0, consulta["nome_pet"].toString());       // Nome do animal
+                consultaItem->setText(1, nomeTutor);                            // Nome do tutor
+                consultaItem->setText(2, consulta["data"].toString());          // Data
+                consultaItem->setText(3, consulta["hora"].toString());          // Hora
+                consultaItem->setText(4, consulta["veterinario"].toString());   // Veterinário
+            }
+        }
+    }
+
+    ui->treeWidget->viewport()->update(); // Atualiza a interface
 }
 
 void menu::on_pushButton_6_clicked()

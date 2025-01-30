@@ -149,7 +149,7 @@ void cadastropesquisar::carregarTutoresEPets()
     }
 
     // Expande o TreeWidget para exibir todos os dados
-    ui->treeWidget->expandAll();
+    //ui->treeWidget->expandAll();
 }
 
 

@@ -25,7 +25,6 @@ private slots:
     void on_sairButton_clicked();   // Slot para o botão Sair
     void on_agendamentoButton_clicked();
     void on_consultaButton_clicked();
-    void on_pushButton_9_clicked();
 
     // Função que será chamada para carregar as consultas do dia
     void carregarConsultas();

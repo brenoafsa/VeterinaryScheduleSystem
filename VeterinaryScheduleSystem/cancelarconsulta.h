@@ -20,8 +20,6 @@ private slots:
     void on_menuButton_clicked();
     void on_apagarButton_clicked(); // Já existente, onde fizemos a adaptação
     void on_consultaButton_clicked();
-    //void on_nomePet_cursorPositionChanged(int arg1, int arg2);
-
     void on_cancelarButton_2_clicked();
 
     void on_remarcacaoButton_clicked();
