@@ -24,6 +24,8 @@ private slots:
 
     void on_pushButton_10_clicked();
 
+    void on_cancelarconsultaButton_clicked();
+
 private:
     Ui::agendamento *ui;
     QJsonArray loadJsonArray(const QString &filename);

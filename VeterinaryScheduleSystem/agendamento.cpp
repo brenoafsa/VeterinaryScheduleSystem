@@ -3,6 +3,7 @@
 #include "menu.h"
 #include "remarcacao.h"
 #include "consultasdodia.h"
+#include "cancelarconsulta.h"
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QJsonArray>
@@ -213,5 +214,14 @@ void agendamento::showErrorDialog(const QString &message) {
     errorBox.setText(message);
     errorBox.exec();
 
+}
+
+
+void agendamento::on_cancelarconsultaButton_clicked()
+{
+    //Botão cancelar consulta
+    cancelarconsulta *cancelarconsultaScreen = new cancelarconsulta();
+    cancelarconsultaScreen -> show();
+    this -> close();
 }
 

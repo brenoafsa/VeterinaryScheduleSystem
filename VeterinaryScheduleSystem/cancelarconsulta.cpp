@@ -3,6 +3,7 @@
 #include "agendamento.h"
 #include "menu.h"
 #include "consultasdodia.h"
+#include "remarcacao.h"
 #include <QDateEdit>
 #include <QTimeEdit>
 #include <QJsonDocument>
@@ -130,4 +131,30 @@ void cancelarconsulta::on_cancelarButton_2_clicked()
 
 }
 
+
+
+void cancelarconsulta::on_remarcacaoButton_clicked()
+{
+    remarcacao *remarcacaoScreen = new remarcacao();
+    remarcacaoScreen -> show();
+    this -> close();
+}
+
+
+void cancelarconsulta::on_consultaButton_2_clicked()
+{
+    //Botão Consultas
+    consultasdodia *consultasScreen = new consultasdodia();
+    consultasScreen -> show();
+    this -> close();
+}
+
+
+void cancelarconsulta::on_agendamentoButton_2_clicked()
+{
+    //Botão agendamento
+    agendamento *agendamentoScreen = new agendamento();
+    agendamentoScreen -> show();
+    this -> close();
+}
 

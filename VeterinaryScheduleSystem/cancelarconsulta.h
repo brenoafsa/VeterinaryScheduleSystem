@@ -24,6 +24,12 @@ private slots:
 
     void on_cancelarButton_2_clicked();
 
+    void on_remarcacaoButton_clicked();
+
+    void on_consultaButton_2_clicked();
+
+    void on_agendamentoButton_2_clicked();
+
 private:
     Ui::cancelarconsulta *ui;
 
