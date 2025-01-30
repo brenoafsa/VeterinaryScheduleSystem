@@ -28,6 +28,8 @@ private slots:
 
     void on_agendamentoButton_clicked();
 
+    void on_cancelarButton_2_clicked();
+
 private:
     Ui::petalterar *ui;
 

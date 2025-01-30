@@ -23,6 +23,8 @@ private slots:
 
     void on_consultaButton_clicked();
 
+    void on_cancelarButton_clicked();
+
 private:
     Ui::cadastroalterar *ui;
 

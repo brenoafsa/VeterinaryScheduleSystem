@@ -226,3 +226,16 @@ void petalterar::on_agendamentoButton_clicked()
     this->close();             // Fecha a janela do menu
 }
 
+
+void petalterar::on_cancelarButton_2_clicked()
+{
+    ui->corPet->clear();
+    ui->cpfTutor->clear();
+    ui->especiePet->clear();
+    ui->idadePet->clear();
+    ui->nomePet->clear();
+    ui->racaPet->clear();
+
+
+}
+

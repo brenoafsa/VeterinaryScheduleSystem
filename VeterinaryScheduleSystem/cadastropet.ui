@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>CADASTRO PET</string>
+   <string> Cadastro Pet</string>
   </property>
   <property name="styleSheet">
    <string notr="true">background-color: #FFFFFF</string>

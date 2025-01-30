@@ -211,3 +211,13 @@ void cadastroalterar::on_consultaButton_clicked()
     this -> close();
 }
 
+
+void cadastroalterar::on_cancelarButton_clicked()
+{
+    ui->cpfTutor->clear();
+    ui->emailTutor->clear();
+    ui->enderecoTutor->clear();
+    ui->nomeTutor->clear();
+    ui->telefoneTutor->clear();
+}
+

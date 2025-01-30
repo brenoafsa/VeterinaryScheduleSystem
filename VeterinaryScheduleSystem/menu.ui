@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MENU</string>
+   <string>Consultas Gerais</string>
   </property>
   <widget class="QWidget" name="widget" native="true">
    <property name="geometry">

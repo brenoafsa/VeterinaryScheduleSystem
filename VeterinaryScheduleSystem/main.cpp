@@ -4,12 +4,19 @@
 #include "cadastropet.h"
 #include <QApplication>
 #include <iostream>
+#include <QIcon>
+#include <QFile>
 
 
 using namespace std;
 
 int main(int argc, char *argv[]) {
     QApplication a(argc, argv);
+
+
+    //icon
+    a.setWindowIcon(QIcon(":/images/images/icone.png"));
+
 
 
     // Inicializa o banco de dados de usuários
