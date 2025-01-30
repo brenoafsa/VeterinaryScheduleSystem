@@ -38,8 +38,8 @@ private:
     QPushButton *atualizarClienteButton;
     QPushButton *deletarClienteButton;
 
-    QVector<QJsonObject> carregarTutores(); // Carrega tutores do arquivo JSON
-    void salvarTutores(const QVector<QJsonObject> &tutores); // Salva tutores no arquivo JSON
+    QVector<QJsonObject> carregarTutores(); // Aqui está carregando tutores do arquivo JSON
+    void salvarTutores(const QVector<QJsonObject> &tutores); // Salvamos os dados de tutores no arquivo JSON
 };
 
 #endif // CADASTROALTERAR_H
