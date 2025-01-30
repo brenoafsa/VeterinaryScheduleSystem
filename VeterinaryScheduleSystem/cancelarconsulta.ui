@@ -185,6 +185,26 @@ color: #ffffff</string>
      <bool>true</bool>
     </property>
    </widget>
+   <widget class="QPushButton" name="menuButton">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>240</y>
+      <width>191</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: #C4B4E0;
+font: 700 9pt &quot;System&quot;;
+border-radius: 12px;
+padding: 5px;
+color: #ffffff</string>
+    </property>
+    <property name="text">
+     <string>Menu</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QPushButton" name="cancelarconsultaButton">
    <property name="geometry">

@@ -122,7 +122,6 @@ void cancelarconsulta::showErrorDialog(const QString &message)
 void cancelarconsulta::on_cancelarButton_2_clicked()
 {
 
-
     ui->nomePet_2->clear();
     ui->cpfTutor_2->clear();
     ui->dateEdit_2->setDate(QDate::currentDate()); // Define a data para o dia atual
