@@ -3,6 +3,9 @@
 #include "agendamento.h"
 #include "menu.h"
 #include "consultasdodia.h"
+#include <QDateEdit>
+#include <QTimeEdit>
+
 
 remarcacao::remarcacao(QWidget *parent)
     : QDialog(parent)
@@ -49,5 +52,11 @@ void remarcacao::on_consultaButton_clicked()
     consultasdodia *consultasScreen = new consultasdodia();
     consultasScreen -> show();
     this -> close();
+}
+
+
+void remarcacao::on_nomePet_cursorPositionChanged(int arg1, int arg2)
+{
+
 }
 

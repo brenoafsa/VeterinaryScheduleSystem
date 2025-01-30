@@ -24,6 +24,8 @@ private slots:
 
     void on_consultaButton_clicked();
 
+    void on_nomePet_cursorPositionChanged(int arg1, int arg2);
+
 private:
     Ui::remarcacao *ui;
 };

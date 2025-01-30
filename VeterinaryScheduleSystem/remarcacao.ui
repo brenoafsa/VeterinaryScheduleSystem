@@ -267,74 +267,33 @@ QLineEdit:placeholder {
       </widget>
      </item>
      <item>
-      <widget class="QLineEdit" name="novaData">
+      <widget class="QDateEdit" name="dateEdit">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
        <property name="sizePolicy">
-        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+        <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
          <horstretch>0</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>
        </property>
-       <property name="autoFillBackground">
-        <bool>false</bool>
-       </property>
        <property name="styleSheet">
-        <string notr="true">
-
-QLineEdit {
-    font-size: 14px;
-    color: gray;
-    border: 1px solid gray;
-    border-radius: 5px;
-    padding: 5px;
-}
-QLineEdit:placeholder {
-    color: gray;
-    font-style: italic;
-}
-
-; background-color: #ffffff</string>
-       </property>
-       <property name="text">
-        <string>Nova Data</string>
-       </property>
-       <property name="placeholderText">
-        <string>Data da Consulta</string>
+        <string notr="true">color: gray;
+background-color: rgb(255, 255, 255);
+border-radius: 5px;
+border-color: rgb(0, 0, 0);
+</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QLineEdit" name="novaHora">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="autoFillBackground">
-        <bool>false</bool>
-       </property>
+      <widget class="QTimeEdit" name="timeEdit">
        <property name="styleSheet">
-        <string notr="true">
-
-QLineEdit {
-    font-size: 14px;
-    color: gray;
-    border: 1px solid gray;
-    border-radius: 5px;
-    padding: 5px;
-}
-QLineEdit:placeholder {
-    color: gray;
-    font-style: italic;
-}
-
-; background-color: #ffffff</string>
-       </property>
-       <property name="text">
-        <string>Novo Horário</string>
-       </property>
-       <property name="placeholderText">
-        <string>Hora</string>
+        <string notr="true">color: gray;
+background-color: rgb(255, 255, 255);
+border-radius: 5px;
+border-color: rgb(0, 0, 0);
+</string>
        </property>
       </widget>
      </item>
