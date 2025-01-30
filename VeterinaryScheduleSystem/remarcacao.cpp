@@ -135,3 +135,13 @@ void remarcacao::on_cancelarconsultaButton_clicked()
     this->close();
 }
 
+
+void remarcacao::on_cancelarButton_clicked()
+{
+    ui->nomePet->clear();
+    ui->cpfTutor->clear();
+    ui->dateEdit->setDate(QDate::currentDate()); // Define a data para o dia atual
+    ui->timeEdit->setTime(QTime::currentTime()); // Define o horário para o atual
+    ui->veterinarioEdit->clear();
+}
+

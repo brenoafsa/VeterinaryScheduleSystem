@@ -98,6 +98,8 @@ private slots:
 
     void on_consultaButton_clicked();
 
+    void on_cancelarButton_clicked();
+
 private:
     Ui::cadastrocliente *ui;
     QPushButton *listarClientesButton;

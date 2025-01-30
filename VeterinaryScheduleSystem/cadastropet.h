@@ -37,6 +37,8 @@ private slots:
 
     void on_consultaButton_clicked();
 
+    void on_cancelarButton_2_clicked();
+
 private:
     Ui::cadastropet *ui;
     QVector<QJsonObject> carregarDados();

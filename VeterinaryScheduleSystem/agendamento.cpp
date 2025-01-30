@@ -225,3 +225,13 @@ void agendamento::on_cancelarconsultaButton_clicked()
     this -> close();
 }
 
+
+void agendamento::on_pushButton_11_clicked()
+{
+    ui->lineEdit_2->clear();
+    ui->lineEdit_3->clear();
+    ui->dateEdit->setDate(QDate::currentDate()); // Define a data para o dia atual
+    ui->timeEdit->setTime(QTime::currentTime()); // Define o horário para o atual
+    ui->lineEdit->clear();
+}
+

@@ -23,6 +23,8 @@ private slots:
     void on_cancelarconsultaButton_clicked();
     void on_nomePet_cursorPositionChanged(int arg1, int arg2);
 
+    void on_cancelarButton_clicked();
+
 private:
     Ui::remarcacao *ui;
 

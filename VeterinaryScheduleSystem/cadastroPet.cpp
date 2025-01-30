@@ -390,3 +390,14 @@ void cadastropet::on_consultaButton_clicked()
     this -> close();
 }
 
+
+void cadastropet::on_cancelarButton_2_clicked()
+{
+    ui->nomePet->clear();
+    ui->especiePet->clear();
+    ui->cpfTutor->clear();
+    ui->racaPet->clear();
+    ui->idadePet->clear();
+    ui->corPet->clear();
+}
+

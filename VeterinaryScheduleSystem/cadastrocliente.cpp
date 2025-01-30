@@ -173,3 +173,13 @@ void cadastrocliente::on_consultaButton_clicked()
     this -> close();
 }
 
+
+void cadastrocliente::on_cancelarButton_clicked()
+{
+    ui->nomeTutor->clear();
+    ui->cpfTutor->clear();
+    ui->emailTutor->clear();
+    ui->enderecoTutor->clear();
+    ui->telefoneTutor->clear();
+}
+
