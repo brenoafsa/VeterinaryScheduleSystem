@@ -12,11 +12,7 @@
 #include <QDebug>
 #include <QPalette>
 #include <QDateEdit>
-#include <QTimeEdit>
-
-
-
-
+#include <QComboBox>
 
 agendamento::agendamento(QWidget *parent)
     : QDialog(parent)
@@ -25,19 +21,19 @@ agendamento::agendamento(QWidget *parent)
     ui->setupUi(this);
 
     // Configurar o campo de data
-    ui->dateEdit->setDisplayFormat("dd-MM-yyyy"); // Define o formato de exibição
-    ui->dateEdit->setCalendarPopup(true); // Habilita o popup do calendário
-    ui->dateEdit->setDate(QDate::currentDate()); // Define a data atual como padrão
+    ui->dateEdit->setDisplayFormat("dd-MM-yyyy");
+    ui->dateEdit->setCalendarPopup(true);
+    ui->dateEdit->setDate(QDate::currentDate());
 
-    // Configurar o campo de hora
-    ui->timeEdit->setDisplayFormat("HH:mm"); // Garante que horas e minutos aparecem
-    ui->timeEdit->setTime(QTime::currentTime()); // Define a hora atual
-    ui->timeEdit->setMinimumTime(QTime(0, 0));  // Permite valores desde 00:00
-    ui->timeEdit->setMaximumTime(QTime(23, 59)); // Permite até 23:59
-    ui->timeEdit->setWrapping(true); // Permite rolagem de valores
-    ui->timeEdit->setButtonSymbols(QAbstractSpinBox::UpDownArrows);
+    // Configurar o campo de horário (ComboBox)
+    ui->comboBox->clear();
+    QTime horaInicio(7, 30); // Início às 07:30
+    QTime horaFim(19, 0);    // Fim às 19:00
 
-
+    while (horaInicio <= horaFim) {
+        ui->comboBox->addItem(horaInicio.toString("HH:mm"));
+        horaInicio = horaInicio.addSecs(30 * 60); // Incremento de 30 minutos
+    }
 }
 
 agendamento::~agendamento()
@@ -47,28 +43,24 @@ agendamento::~agendamento()
 
 void agendamento::on_menuButton_clicked()
 {
-    //Botão para retornar ao menu
     menu *menuScreen = new menu();
-    menuScreen->show();         // Exibe a janela do menu
-    this->close();              // Fecha a tela de agendamento
+    menuScreen->show();
+    this->close();
 }
 
 void agendamento::on_remarcacaoButton_clicked()
 {
-    // Botão Remarcar consulta
     remarcacao *remarcacaoScreen = new remarcacao();
-    remarcacaoScreen->show(); // Exibe a tela de remarcação
-    this->close();          // Fecha a janela atual
+    remarcacaoScreen->show();
+    this->close();
 }
 
 void agendamento::on_consultaButton_clicked()
 {
-    //Botão Consultas
     consultasdodia *consultasScreen = new consultasdodia();
-    consultasScreen -> show();
-    this -> close();
+    consultasScreen->show();
+    this->close();
 }
-
 
 void agendamento::on_pushButton_10_clicked()
 {
@@ -76,7 +68,7 @@ void agendamento::on_pushButton_10_clicked()
     QString nomePet = ui->lineEdit_2->text().trimmed().toLower();
     QString cpfTutor = ui->lineEdit_3->text().remove(".").remove("-").trimmed();
     QString dataConsulta = ui->dateEdit->date().toString("dd-MM-yyyy");
-    QString horaConsulta = ui->timeEdit->time().toString("HH:mm");
+    QString horaConsulta = ui->comboBox->currentText(); // Obtém o horário escolhido no ComboBox
     QString veterinario = ui->lineEdit->text().trimmed();
 
     // Verificação de campos vazios
@@ -95,28 +87,19 @@ void agendamento::on_pushButton_10_clicked()
     }
 
     bool tutorEncontrado = false;
-
     for (const QJsonValue &value : tutoresArray) {
         QJsonObject tutor = value.toObject();
+        if (!tutor.contains("cpf")) continue;
 
-        if (!tutor.contains("cpf")) {
-            qDebug() << "Erro: Objeto tutor sem chave 'cpf':" << tutor;
-            continue;
-        }
-
-        QString cpfJson = tutor["cpf"].toString();
-        QString cpfTutorLimpo = cpfTutor;
-
-        qDebug() << "Comparando CPF do JSON:" << cpfJson << "com CPF informado:" << cpfTutorLimpo;
-
-        if (cpfJson == cpfTutorLimpo) {
+        if (tutor["cpf"].toString() == cpfTutor) {
             tutorEncontrado = true;
             break;
         }
     }
 
     if (!tutorEncontrado) {
-        qDebug() << "Nenhum tutor encontrado com o CPF:" << cpfTutor;
+        showErrorDialog("CPF do tutor não encontrado.");
+        return;
     }
 
     // Validação do pet
@@ -130,13 +113,8 @@ void agendamento::on_pushButton_10_clicked()
     for (const QJsonValue &value : petsArray) {
         QJsonObject pet = value.toObject();
 
-        QString cpfTutorPet = pet["cpf_tutor"].toString().remove(".").remove("-");
-        QString nomePetJson = pet["nome"].toString().toLower();
-
-        qDebug() << "Comparando nome do pet JSON: [" << nomePetJson << "] com nome informado: [" << nomePet << "]";
-
-
-        if (cpfTutorPet == cpfTutor && nomePetJson == nomePet) {
+        if (pet["cpf_tutor"].toString().remove(".").remove("-") == cpfTutor &&
+            pet["nome"].toString().toLower() == nomePet) {
             petEncontrado = true;
             break;
         }
@@ -178,11 +156,7 @@ QJsonArray agendamento::loadJsonArray(const QString &filename) {
     QJsonDocument doc = QJsonDocument::fromJson(file.readAll());
     file.close();
 
-    if (!doc.isArray()) {
-        return QJsonArray();
-    }
-
-    return doc.array();
+    return doc.isArray() ? doc.array() : QJsonArray();
 }
 
 bool agendamento::saveConsulta(const QJsonObject &consulta) {
@@ -213,25 +187,20 @@ void agendamento::showErrorDialog(const QString &message) {
                            "QPushButton:hover { background-color: #A6036D; }");
     errorBox.setText(message);
     errorBox.exec();
-
 }
-
 
 void agendamento::on_cancelarconsultaButton_clicked()
 {
-    //Botão cancelar consulta
     cancelarconsulta *cancelarconsultaScreen = new cancelarconsulta();
-    cancelarconsultaScreen -> show();
-    this -> close();
+    cancelarconsultaScreen->show();
+    this->close();
 }
-
 
 void agendamento::on_pushButton_11_clicked()
 {
     ui->lineEdit_2->clear();
     ui->lineEdit_3->clear();
-    ui->dateEdit->setDate(QDate::currentDate()); // Define a data para o dia atual
-    ui->timeEdit->setTime(QTime::currentTime()); // Define o horário para o atual
+    ui->dateEdit->setDate(QDate::currentDate());
+    ui->comboBox->setCurrentIndex(0); // Define o primeiro horário como padrão
     ui->lineEdit->clear();
 }
-

@@ -17,11 +17,44 @@ cadastropesquisar::cadastropesquisar(QWidget *parent)
     , ui(new Ui::cadastropesquisar)
 {
     ui->setupUi(this);
-    ui->treeWidget->setColumnCount(2);
-    ui->treeWidget->setHeaderLabels({"Nome", "Informação"});
+
     ui->lineEdit->setStyleSheet("color: black; "
                                 "background-color:#ffffff;"
                                 "border-radius: 10px;");
+
+
+
+
+    ui->treeWidget->setColumnCount(2);
+    ui->treeWidget->setHeaderLabels({"Nome", "Informação"});
+    ui->treeWidget->setStyleSheet(
+        "QTreeWidget {"
+        "   background-color: #f5f5f5;"
+        "   border-radius: 10px;"
+        "   font-size: 14px;"
+        "   color: #333;"
+        "}"
+        "QTreeWidget::item {"
+        "   padding: 10px;"
+        "   border-bottom: 1px solid #ccc;"
+        "}"
+        "QTreeWidget::item:selected {"
+        "   background-color: #C4B4E0;"
+        "   color: white;"
+        "}"
+        );
+    ui->treeWidget->header()->setStyleSheet(
+        "QHeaderView::section {"
+        "   background-color: #9B88BF;"
+        "   color: white;"
+        "   padding: 5px;"
+        "   border-radius: 5px;"
+        "}"
+        );
+    ui->treeWidget->setExpandsOnDoubleClick(true);
+    ui->treeWidget->setColumnWidth(0, 250); // Ajuste conforme necessário
+
+
 
 
     // Carrega todos os tutores e pets ao inicializar a tela

@@ -24,6 +24,44 @@ consultasdodia::consultasdodia(QWidget *parent)
     QStringList headers;
     headers << "Pet" << "Tutor" << "Hora" << "Veterinário";
     ui->treeWidget->setHeaderLabels(headers);
+    ui->treeWidget->setStyleSheet(
+        "QTreeWidget {"
+        "   background-color: #f5f5f5;"
+        "   border-radius: 10px;"
+        "   font-size: 14px;"
+        "   color: #333;"
+        "}"
+        "QTreeWidget::item {"
+        "   padding: 10px;"
+        "   border-bottom: 1px solid #ccc;"
+        "}"
+        "QTreeWidget::item:selected {"
+        "   background-color: #C4B4E0;"
+        "   color: white;"
+        "}"
+        );
+    ui->treeWidget->header()->setStyleSheet(
+        "QHeaderView::section {"
+        "   background-color: #9B88BF;"
+        "   color: white;"
+        "   padding: 5px;"
+        "   border-radius: 5px;"
+        "}"
+        );
+    ui->treeWidget->setExpandsOnDoubleClick(true);
+
+    // Definir largura fixa para cada coluna
+    ui->treeWidget->setColumnWidth(0, 180);  // Pet
+    ui->treeWidget->setColumnWidth(1, 250);  // Tutor
+    ui->treeWidget->setColumnWidth(2, 100);  // Hora
+    ui->treeWidget->setColumnWidth(3, 200);  // Veterinário
+
+
+
+    connect(ui->lineEdit, &QLineEdit::returnPressed, this, &consultasdodia::on_pesquisarrButton_3_clicked);
+
+
+
 
     // Carregar consultas do dia ao abrir a tela
     carregarConsultasDoDia();
@@ -131,12 +169,13 @@ void consultasdodia::on_pesquisarrButton_3_clicked()
     // botão de pesquisar
 
 
-
     QString busca = ui->lineEdit->text().trimmed().toLower();
 
     for (int i = 0; i < ui->treeWidget->topLevelItemCount(); ++i) {
         QTreeWidgetItem *item = ui->treeWidget->topLevelItem(i);
-        if (item->text(0).toLower().contains(busca)) {
+
+        // Verifica tanto o nome do pet (coluna 0) quanto o tutor (coluna 1)
+        if (busca.isEmpty() || item->text(0).toLower().contains(busca) || item->text(1).toLower().contains(busca)) {
             item->setHidden(false);
         } else {
             item->setHidden(true);

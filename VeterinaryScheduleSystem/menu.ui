@@ -26,62 +26,12 @@
     <string notr="true">background-color: #ffffff
 </string>
    </property>
-   <widget class="QPushButton" name="pushButton_6">
-    <property name="geometry">
-     <rect>
-      <x>550</x>
-      <y>180</y>
-      <width>211</width>
-      <height>101</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: #C7C0D5; border-radius: 10px; color: #FFFFFF; font-size: 30px;</string>
-    </property>
-    <property name="text">
-     <string>Cadastro</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_8">
-    <property name="geometry">
-     <rect>
-      <x>760</x>
-      <y>350</y>
-      <width>211</width>
-      <height>101</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: #C7C0D5; border-radius: 10px; color: #FFFFFF; font-size: 30px;</string>
-    </property>
-    <property name="text">
-     <string>Agendar 
-Consulta</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_9">
-    <property name="geometry">
-     <rect>
-      <x>950</x>
-      <y>180</y>
-      <width>211</width>
-      <height>101</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: #C7C0D5; border-radius: 10px; color: #FFFFFF; font-size: 30px;</string>
-    </property>
-    <property name="text">
-     <string>Consultas 
-do Dia</string>
-    </property>
-   </widget>
    <widget class="QWidget" name="widget_3" native="true">
     <property name="geometry">
      <rect>
-      <x>720</x>
-      <y>40</y>
-      <width>241</width>
+      <x>480</x>
+      <y>10</y>
+      <width>611</width>
       <height>101</height>
      </rect>
     </property>
@@ -91,9 +41,9 @@ do Dia</string>
     <widget class="QLabel" name="menu_2">
      <property name="geometry">
       <rect>
-       <x>60</x>
+       <x>130</x>
        <y>20</y>
-       <width>131</width>
+       <width>421</width>
        <height>51</height>
       </rect>
      </property>
@@ -101,7 +51,7 @@ do Dia</string>
       <string notr="true">font: 30pt &quot;Garamond&quot;; color: #ffffff</string>
      </property>
      <property name="text">
-      <string>Menu</string>
+      <string>Consultas Gerais</string>
      </property>
     </widget>
    </widget>
@@ -121,7 +71,7 @@ do Dia</string>
      <property name="geometry">
       <rect>
        <x>40</x>
-       <y>300</y>
+       <y>340</y>
        <width>191</width>
        <height>51</height>
       </rect>
@@ -141,7 +91,7 @@ color: #ffffff</string>
      <property name="geometry">
       <rect>
        <x>40</x>
-       <y>360</y>
+       <y>400</y>
        <width>191</width>
        <height>51</height>
       </rect>
@@ -161,7 +111,7 @@ color: #ffffff</string>
      <property name="geometry">
       <rect>
        <x>40</x>
-       <y>540</y>
+       <y>530</y>
        <width>191</width>
        <height>51</height>
       </rect>
@@ -181,7 +131,7 @@ color: #ffffff</string>
      <property name="geometry">
       <rect>
        <x>40</x>
-       <y>240</y>
+       <y>220</y>
        <width>191</width>
        <height>51</height>
       </rect>
@@ -204,7 +154,7 @@ color: #ffffff
 </string>
      </property>
      <property name="text">
-      <string>Menu</string>
+      <string>Consultas Gerais</string>
      </property>
     </widget>
     <widget class="QLabel" name="label">
@@ -226,11 +176,55 @@ color: #ffffff
       <bool>true</bool>
      </property>
     </widget>
+    <widget class="QPushButton" name="pushButton_6">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>280</y>
+       <width>191</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>System</family>
+       <pointsize>9</pointsize>
+       <italic>false</italic>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: #C4B4E0;
+font: 700 9pt &quot;System&quot;;
+border-radius: 12px;
+padding: 5px;
+color: rgb(255, 255, 255);</string>
+     </property>
+     <property name="text">
+      <string>Cadastro</string>
+     </property>
+    </widget>
     <zorder>agendamentoButton</zorder>
     <zorder>sairButton</zorder>
     <zorder>label</zorder>
     <zorder>consultaButton_2</zorder>
     <zorder>consultaButton</zorder>
+    <zorder>pushButton_6</zorder>
+   </widget>
+   <widget class="QTreeWidget" name="treeWidget">
+    <property name="geometry">
+     <rect>
+      <x>610</x>
+      <y>200</y>
+      <width>256</width>
+      <height>192</height>
+     </rect>
+    </property>
+    <column>
+     <property name="text">
+      <string notr="true">1</string>
+     </property>
+    </column>
    </widget>
   </widget>
  </widget>

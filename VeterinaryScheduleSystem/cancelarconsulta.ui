@@ -409,13 +409,17 @@ border-color: rgb(0, 0, 0);
       </widget>
      </item>
      <item>
-      <widget class="QTimeEdit" name="timeEdit_2">
+      <widget class="QComboBox" name="comboBox">
        <property name="styleSheet">
         <string notr="true">color: gray;
 background-color: rgb(255, 255, 255);
 border-radius: 5px;
 border-color: rgb(0, 0, 0);
+
 </string>
+       </property>
+       <property name="placeholderText">
+        <string>Informe a Hora</string>
        </property>
       </widget>
      </item>

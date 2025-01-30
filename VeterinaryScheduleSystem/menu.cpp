@@ -30,13 +30,6 @@ void menu::on_pushButton_6_clicked()
     this->close();          // Fecha a janela do menu
 }
 
-void menu::on_pushButton_8_clicked()
-{
-    // Botão Agendar Consulta
-    agendamento *agendamentoScreen = new agendamento(); // Cria a tela de agendamento
-    agendamentoScreen->show(); // Exibe a tela de agendamento
-    this->close();             // Fecha a janela do menu
-}
 
 void menu::on_sairButton_clicked()
 {
@@ -66,10 +59,5 @@ void menu::on_consultaButton_clicked()
 }
 
 
-void menu::on_pushButton_9_clicked()
-{
-    consultasdodia *consultas2Screen = new consultasdodia();
-    consultas2Screen -> show();
-    this -> close();
-}
+
 

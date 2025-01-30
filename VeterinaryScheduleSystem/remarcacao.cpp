@@ -17,6 +17,22 @@ remarcacao::remarcacao(QWidget *parent)
     , ui(new Ui::remarcacao)
 {
     ui->setupUi(this);
+
+    ui->dateEdit->setCalendarPopup(true); //pop-up de data
+
+    // Definir a data do dia atual ao abrir a tela
+    ui->dateEdit->setDate(QDate::currentDate());
+
+    // Populando o comboBox com horários padronizados (7:30 até 19:00, de 30 em 30 minutos)
+    QTime horaInicio(7, 30); // 07:30
+    QTime horaFim(19, 0);    // 19:00
+
+    while (horaInicio <= horaFim) {
+        ui->comboBox->addItem(horaInicio.toString("HH:mm"));
+        horaInicio = horaInicio.addSecs(30 * 60); // Adiciona 30 minutos
+    }
+
+
 }
 
 remarcacao::~remarcacao()
@@ -46,7 +62,7 @@ void remarcacao::on_alterarButton_clicked()
     QString nomePet = ui->nomePet->text().trimmed().toLower();  // Nome do pet
     QString cpfTutor = ui->cpfTutor->text().remove(".").remove("-").trimmed();  // CPF do tutor
     QString dataConsulta = ui->dateEdit->date().toString("dd-MM-yyyy");  // Data da consulta
-    QString horaConsulta = ui->timeEdit->time().toString("HH:mm");  // Hora da consulta
+    QString horaConsulta = ui->comboBox->currentText();  // Obtém o horário selecionado no ComboBox
     QString veterinario = ui->veterinarioEdit->text().trimmed();  // Veterinário
 
     // Verificação de campos vazios
@@ -141,7 +157,7 @@ void remarcacao::on_cancelarButton_clicked()
     ui->nomePet->clear();
     ui->cpfTutor->clear();
     ui->dateEdit->setDate(QDate::currentDate()); // Define a data para o dia atual
-    ui->timeEdit->setTime(QTime::currentTime()); // Define o horário para o atual
+    ui->comboBox->setCurrentIndex(0); // Define o primeiro horário (7:30)
     ui->veterinarioEdit->clear();
 }
 

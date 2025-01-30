@@ -17,6 +17,21 @@ cancelarconsulta::cancelarconsulta(QWidget *parent)
     , ui(new Ui::cancelarconsulta)
 {
     ui->setupUi(this);
+
+    ui->dateEdit_2->setCalendarPopup(true); //pop-up de data
+    // Definir a data do dia atual ao abrir a tela
+    ui->dateEdit_2->setDate(QDate::currentDate());
+
+
+    // Populando o comboBox com horários padronizados (7:30 até 19:00, de 30 em 30 minutos)
+    QTime horaInicio(7, 30); // 07:30
+    QTime horaFim(19, 0);    // 19:00
+
+    while (horaInicio <= horaFim) {
+        ui->comboBox->addItem(horaInicio.toString("HH:mm"));
+        horaInicio = horaInicio.addSecs(30 * 60); // Adiciona 30 minutos
+    }
+
 }
 
 cancelarconsulta::~cancelarconsulta()
@@ -42,12 +57,15 @@ void cancelarconsulta::on_menuButton_clicked()
 
 void cancelarconsulta::on_apagarButton_clicked()
 {
-    // Lógica para buscar e apagar consulta
-    QString nomePet = ui->nomePet_2->text().trimmed().toLower();  // Nome do pet
-    QString cpfTutor = ui->cpfTutor_2->text().remove(".").remove("-").trimmed();  // CPF do tutor
+    // Obter os dados preenchidos nos campos
+    QString nomePet = ui->nomePet_2->text().trimmed().toLower();
+    QString cpfTutor = ui->cpfTutor_2->text().remove(".").remove("-").trimmed();
+    QString dataConsulta = ui->dateEdit_2->date().toString("dd/MM/yyyy").replace("/", "-");
+    QString horaConsulta = ui->comboBox->currentText();
+    QString veterinario = ui->veterinarioEdit_2->text().trimmed();
 
-    // Verificação de campos vazios
-    if (nomePet.isEmpty() || cpfTutor.isEmpty()) {
+    // Verificar se algum campo está vazio
+    if (nomePet.isEmpty() || cpfTutor.isEmpty() || dataConsulta.isEmpty() || horaConsulta.isEmpty() || veterinario.isEmpty()) {
         showErrorDialog("Por favor, preencha todos os campos.");
         return;
     }
@@ -64,40 +82,55 @@ void cancelarconsulta::on_apagarButton_clicked()
     file.close();
 
     bool consultaEncontrada = false;
+
+    // Buscar a consulta com todos os critérios
     for (int i = 0; i < consultasArray.size(); ++i) {
         QJsonObject consulta = consultasArray[i].toObject();
 
-        QString cpfConsulta = consulta["cpf_tutor"].toString();
-        QString nomePetConsulta = consulta["nome_pet"].toString().toLower();
+        if (consulta["cpf_tutor"].toString() == cpfTutor &&
+            consulta["nome_pet"].toString().toLower() == nomePet &&
+            consulta["data"].toString() == dataConsulta &&
+            consulta["hora"].toString() == horaConsulta &&
+            consulta["veterinario"].toString() == veterinario) {
 
-        // Se encontrar uma consulta com o mesmo CPF e nome do pet
-        if (cpfConsulta == cpfTutor && nomePetConsulta == nomePet) {
             consultasArray.removeAt(i);  // Remove a consulta encontrada
             consultaEncontrada = true;
-            break;
+            break;  // Encerra o loop após encontrar a consulta
         }
     }
 
-    // Se encontrou a consulta, salvar as mudanças
+    // Salvar alterações no arquivo
     if (consultaEncontrada) {
-        if (!file.open(QIODevice::WriteOnly | QIODevice::Truncate)) {  // Abrir para escrever e truncar o arquivo
-            showErrorDialog("Erro ao salvar as mudanças.");
+        if (!file.open(QIODevice::WriteOnly | QIODevice::Truncate)) {
+            showErrorDialog("Erro ao salvar as alterações.");
             return;
         }
 
-        // Salvar os dados atualizados no arquivo JSON
         file.write(QJsonDocument(consultasArray).toJson());
         file.close();
 
-        // Exibir a mensagem de sucesso
         QMessageBox successBox;
-        successBox.setStyleSheet("QMessageBox { background-color: #D9048E; color: white; font-size: 14px; }"
-                                 "QPushButton { background-color: #F26DCF; color: white; border-radius: 5px; padding: 5px; }"
-                                 "QPushButton:hover { background-color: #A6036D; }");
+        successBox.setStyleSheet(
+            "QMessageBox {"
+            "    background-color: #C4B4E0; color: black; font-size: 14px;"
+            "}"
+            "QMessageBox QLabel {"
+            "    color: #FFFFFF;" // Define a cor do texto principal como branco
+            "}"
+            "QPushButton {"
+            "    background-color: #9B88BF; color: #FFFFFF; border-radius: 5px; padding: 5px;"
+            "}"
+            "QPushButton:hover {"
+            "    background-color: #C7C0D5;"
+            "}"
+            );
+        successBox.setIcon(QMessageBox::Information);
         successBox.setText("Consulta apagada com sucesso!");
+        successBox.setWindowTitle("Sucesso");
         successBox.exec();
+
     } else {
-        showErrorDialog("Consulta não encontrada para este pet e tutor.");
+        showErrorDialog("Nenhuma consulta encontrada com os dados fornecidos.");
     }
 }
 
@@ -125,7 +158,7 @@ void cancelarconsulta::on_cancelarButton_2_clicked()
     ui->nomePet_2->clear();
     ui->cpfTutor_2->clear();
     ui->dateEdit_2->setDate(QDate::currentDate()); // Define a data para o dia atual
-    ui->timeEdit_2->setTime(QTime::currentTime()); // Define o horário para o atual
+    ui->comboBox->setCurrentIndex(0); // Define o primeiro horário (7:30)
     ui->veterinarioEdit_2->clear();
 
 }

@@ -18,12 +18,9 @@ public:
     ~menu();
 
 private slots:
-    void on_pushButton_8_clicked(); // Slot para abrir Agendamento
     void on_pushButton_6_clicked(); // Slot para abrir Cadastro Cliente
     void on_sairButton_clicked();   // Slot para o botão Sair
-
     void on_agendamentoButton_clicked();
-
     void on_consultaButton_clicked();
 
     void on_pushButton_9_clicked();
