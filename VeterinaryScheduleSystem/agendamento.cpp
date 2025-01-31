@@ -102,7 +102,6 @@ void agendamento::on_pushButton_10_clicked()
 
     // Validação do tutor
     QJsonArray tutoresArray = loadJsonArray("tutores.json");
-    qDebug() << "Tutores carregados:" << QJsonDocument(tutoresArray).toJson();
 
     if (tutoresArray.isEmpty()) {
         showErrorDialog("Erro ao carregar dados dos tutores.");
