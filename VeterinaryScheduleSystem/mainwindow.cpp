@@ -1,7 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "menu.h"  // Inclua o cabeçalho da nova tela
-#include "database.h"  // Inclua o cabeçalho do banco de dados
+#include "menu.h"
+#include "database.h"
 #include <QMessageBox>
 #include <QPixmap>
 
@@ -24,13 +24,13 @@ MainWindow::~MainWindow()
 void MainWindow::on_BotaoDeEntrada_clicked()
 {
 
-    QString nome = ui->txt_nome->text().trimmed();  // Remover espaços extras
-    QString senha = ui->txt_senha->text().trimmed();  // Remover espaços extras
+    QString nome = ui->txt_nome->text().trimmed();
+    QString senha = ui->txt_senha->text().trimmed();
 
     if (verificarCredenciais(nome, senha)) {
         // Login bem-sucedido, cria e exibe a tela de menu
-        menu *menuScreen = new menu(this); // Passa a instância da MainWindow
-        menuScreen->setAttribute(Qt::WA_DeleteOnClose); // Garante que o menu seja deletado ao fechar
+        menu *menuScreen = new menu(this);
+        menuScreen->setAttribute(Qt::WA_DeleteOnClose);
         menuScreen->show();
 
         // Fecha a janela atual (MainWindow)

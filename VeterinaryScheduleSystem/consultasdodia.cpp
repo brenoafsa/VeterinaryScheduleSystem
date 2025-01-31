@@ -12,7 +12,7 @@
 #include <QRegularExpression>
 
 
-
+// Construtor
 consultasdodia::consultasdodia(QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::consultasdodia)
@@ -20,7 +20,6 @@ consultasdodia::consultasdodia(QWidget *parent)
     ui->setupUi(this);
 
 
-    // Configuração do treeWidget (4 colunas)
     ui->treeWidget->setColumnCount(4);
     QStringList headers;
     headers << "Pet" << "Tutor" << "Hora" << "Veterinário";
@@ -51,11 +50,11 @@ consultasdodia::consultasdodia(QWidget *parent)
         );
     ui->treeWidget->setExpandsOnDoubleClick(true);
 
-    // Definir largura fixa para cada coluna
-    ui->treeWidget->setColumnWidth(0, 180);  // Pet
-    ui->treeWidget->setColumnWidth(1, 250);  // Tutor
-    ui->treeWidget->setColumnWidth(2, 100);  // Hora
-    ui->treeWidget->setColumnWidth(3, 200);  // Veterinário
+    // Define largura fixa para cada coluna
+    ui->treeWidget->setColumnWidth(0, 180);
+    ui->treeWidget->setColumnWidth(1, 250);
+    ui->treeWidget->setColumnWidth(2, 100);
+    ui->treeWidget->setColumnWidth(3, 200);
 
 
 
@@ -64,23 +63,22 @@ consultasdodia::consultasdodia(QWidget *parent)
 
 
 
-    // Carregar consultas do dia ao abrir a tela
+    // Carrega consultas do dia
     carregarConsultasDoDia();
 
-    // Atualizar automaticamente a cada 60 segundos
     QTimer *timer = new QTimer(this);
     connect(timer, &QTimer::timeout, this, &consultasdodia::carregarConsultasDoDia);
     timer->start(60000); // 60 segundos
 }
 
+// Destrutor
 consultasdodia::~consultasdodia()
 {
     delete ui;
 }
 
 
-
-
+// Carregar consultas do dia
 void consultasdodia::carregarConsultasDoDia() {
     QFile file("consultas.json");
     if (!file.open(QIODevice::ReadOnly)) {
@@ -145,29 +143,25 @@ void consultasdodia::carregarConsultasDoDia() {
 
 
 
-
+// Botão voltar as consultas gerais
 void consultasdodia::on_menuButton_2_clicked()
 {
-    // Botão voltar ao menu
     menu *menuScreen = new menu(); // Cria a tela menu
-    menuScreen->show(); // Exibe a tela de menu
+    menuScreen->show();     // Exibe a tela de menu
     this->close();             // Fecha a janela atual
 }
 
-
+// Botão agendamento
 void consultasdodia::on_agendamentoButton_2_clicked()
 {
-    // Botão Agendar Consulta
     agendamento *agendamentoScreen = new agendamento(); // Cria a tela de agendamento
     agendamentoScreen->show(); // Exibe a tela de agendamento
-    this->close();             // Fecha a janela das consultas
+    this->close();
 }
 
-
+// Botão de pesquisar
 void consultasdodia::on_pesquisarrButton_3_clicked()
 {
-    // botão de pesquisar
-
 
     QString busca = ui->lineEdit->text().trimmed().toLower();
 
@@ -184,12 +178,11 @@ void consultasdodia::on_pesquisarrButton_3_clicked()
 
 }
 
-
+// Botão de cadastro cliente
 void consultasdodia::on_pushButton_6_clicked()
 {
-    // Botão Cadastro Cliente
     cadastrocliente *cadastroScreen = new cadastrocliente(); // Cria a tela de cadastro
     cadastroScreen->show(); // Exibe a tela de cadastro
-    this->close();          // Fecha a janela do menu
+    this->close();
 }
 

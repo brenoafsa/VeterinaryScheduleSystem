@@ -8,6 +8,7 @@
 
 class MainWindow; // Forward declaration
 
+// Gerando interface
 namespace Ui {
 class menu;
 }
@@ -17,27 +18,25 @@ class menu : public QDialog
     Q_OBJECT
 
 public:
-    explicit menu(MainWindow *parent = nullptr);  // Certifique-se de que essa linha está presente
-    ~menu();
+    explicit menu(MainWindow *parent = nullptr);    // Construtor
+    ~menu();                                        // Destrutor
 
 private slots:
-    void on_pushButton_6_clicked(); // Slot para abrir Cadastro Cliente
-    void on_sairButton_clicked();   // Slot para o botão Sair
+    // Funções associadas aos botões da interface gráfica.
+    void on_pushButton_6_clicked();
+    void on_sairButton_clicked();
     void on_agendamentoButton_clicked();
     void on_consultaButton_clicked();
 
-    // Função que será chamada para carregar as consultas do dia
+    // Função chamada para carregar as consultas do dia
     void carregarConsultas();
 
 private:
-    Ui::menu *ui;
-    MainWindow *mainWindow; // Ponteiro para a janela principal
+    Ui::menu *ui;               // Ponteiro para a interface gráfica
+    MainWindow *mainWindow;     // Ponteiro para a janela principal
 
-    // Função que carrega os tutores do JSON
-    QVector<QJsonObject> carregarTutores();  // Declarando corretamente a função carregarTutores
-
-    // Adicionando o QTreeWidget para exibir as consultas
-    QTreeWidget *treeWidget; // Declarando o QTreeWidget
+    QVector<QJsonObject> carregarTutores();  // Função que carrega os tutores do JSON
+    QTreeWidget *treeWidget;                // Ponteiro para o QTreeWidget que exibe as consultas
 };
 
-#endif // MENU_H
+#endif

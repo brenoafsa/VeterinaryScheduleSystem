@@ -15,18 +15,19 @@
 #include <QDateEdit>
 #include <QComboBox>
 
+// COnstrutor da classe 'agendamento'
 agendamento::agendamento(QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::agendamento)
 {
     ui->setupUi(this);
 
-    // Configurar o campo de data
+    // Configura o campo de data
     ui->dateEdit->setDisplayFormat("dd-MM-yyyy");
     ui->dateEdit->setCalendarPopup(true);
     ui->dateEdit->setDate(QDate::currentDate());
 
-    // Configurar o campo de horário (ComboBox)
+    // Configura o campo de horário
     ui->comboBox->clear();
     QTime horaInicio(7, 30); // Início às 07:30
     QTime horaFim(19, 0);    // Fim às 19:00
@@ -37,11 +38,13 @@ agendamento::agendamento(QWidget *parent)
     }
 }
 
+// Destrutor da classe
 agendamento::~agendamento()
 {
     delete ui;
 }
 
+// Botão para abrir as consultas gerais (menu principal)
 void agendamento::on_menuButton_clicked()
 {
     menu *menuScreen = new menu();
@@ -49,6 +52,7 @@ void agendamento::on_menuButton_clicked()
     this->close();
 }
 
+// Botão para abrir a tela de remarcação
 void agendamento::on_remarcacaoButton_clicked()
 {
     remarcacao *remarcacaoScreen = new remarcacao();
@@ -56,6 +60,7 @@ void agendamento::on_remarcacaoButton_clicked()
     this->close();
 }
 
+// Botão para abrir a tela de consultas do dia
 void agendamento::on_consultaButton_clicked()
 {
     consultasdodia *consultasScreen = new consultasdodia();
@@ -63,16 +68,33 @@ void agendamento::on_consultaButton_clicked()
     this->close();
 }
 
+// Botão para abrir a tela de cadastro de cliente
+void agendamento::on_pushButton_6_clicked()
+{
+    // Botão Cadastro Cliente
+    cadastrocliente *cadastroScreen = new cadastrocliente(); // Cria a tela de cadastro
+    cadastroScreen->show(); // Exibe a tela de cadastro
+    this->close();
+}
+
+// Botão para abrir tela de cancelamento das consultas
+void agendamento::on_cancelarconsultaButton_clicked()
+{
+    cancelarconsulta *cancelarconsultaScreen = new cancelarconsulta();
+    cancelarconsultaScreen->show();
+    this->close();
+}
+
+// Botão para salvar os dados da consulta
 void agendamento::on_pushButton_10_clicked()
 {
-    // Obtendo e normalizando dados
     QString nomePet = ui->lineEdit_2->text().trimmed().toLower();
     QString cpfTutor = ui->lineEdit_3->text().remove(".").remove("-").trimmed();
     QString dataConsulta = ui->dateEdit->date().toString("dd-MM-yyyy");
-    QString horaConsulta = ui->comboBox->currentText(); // Obtém o horário escolhido no ComboBox
+    QString horaConsulta = ui->comboBox->currentText();
     QString veterinario = ui->lineEdit->text().trimmed();
 
-    // Verificação de campos vazios
+    // Verifica se os campos estão vazios
     if (nomePet.isEmpty() || cpfTutor.isEmpty() || dataConsulta.isEmpty() || horaConsulta.isEmpty() || veterinario.isEmpty()) {
         showErrorDialog("Por favor, preencha todos os campos.");
         return;
@@ -126,7 +148,7 @@ void agendamento::on_pushButton_10_clicked()
         return;
     }
 
-    // Salvar consulta
+    // Salva os dados da consulta
     QJsonObject novaConsulta;
     novaConsulta["nome_pet"] = nomePet;
     novaConsulta["cpf_tutor"] = cpfTutor;
@@ -190,13 +212,7 @@ void agendamento::showErrorDialog(const QString &message) {
     errorBox.exec();
 }
 
-void agendamento::on_cancelarconsultaButton_clicked()
-{
-    cancelarconsulta *cancelarconsultaScreen = new cancelarconsulta();
-    cancelarconsultaScreen->show();
-    this->close();
-}
-
+// Limpar os dados ao apertar em cancelar
 void agendamento::on_pushButton_11_clicked()
 {
     ui->lineEdit_2->clear();
@@ -204,13 +220,5 @@ void agendamento::on_pushButton_11_clicked()
     ui->dateEdit->setDate(QDate::currentDate());
     ui->comboBox->setCurrentIndex(0); // Define o primeiro horário como padrão
     ui->lineEdit->clear();
-}
-
-void agendamento::on_pushButton_6_clicked()
-{
-    // Botão Cadastro Cliente
-    cadastrocliente *cadastroScreen = new cadastrocliente(); // Cria a tela de cadastro
-    cadastroScreen->show(); // Exibe a tela de cadastro
-    this->close();
 }
 

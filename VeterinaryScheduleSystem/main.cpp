@@ -14,7 +14,7 @@ int main(int argc, char *argv[]) {
     QApplication a(argc, argv);
 
 
-    //icon
+    // icon
     a.setWindowIcon(QIcon(":/images/images/icone.png"));
 
 
@@ -29,8 +29,6 @@ int main(int argc, char *argv[]) {
 
     // Teste: Exibe os clientes cadastrados no terminal
     clientDataBase& clientDB = clientDataBase::getInstance();
-
-    // Adicionando clientes de exemplo (opcional, para teste)
 
 
     // Exibe os clientes cadastrados no terminal

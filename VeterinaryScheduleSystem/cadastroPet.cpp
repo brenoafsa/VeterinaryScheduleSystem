@@ -15,35 +15,30 @@
 #include <QDebug>
 
 
-
-
+// Construtor
 cadastropet::cadastropet(QWidget *parent)
     : QDialog(parent), ui(new Ui::cadastropet) {
     ui->setupUi(this);
 
-    // Conectando o botão "Cadastrar" ao método de cadastro
     connect(ui->cadastrarButton_2, &QPushButton::clicked, this, &cadastropet::cadastrarPet);
 
 }
 
+// Destrutor
 cadastropet::~cadastropet() {
     delete ui;
 }
 
 
-
-
-// Implementação do método cadastrarPet
 void cadastropet::cadastrarPet() {
     // Reutiliza o método on_cadastrarButton_2_clicked
     //on_cadastrarButton_2_clicked();
-
     //não precisa mais usar isso
 }
 
 
 
-
+// Botão para cadastrar pet
 void cadastropet::on_cadastrarButton_2_clicked() {
     // Obtém os valores dos campos de texto
     QString nome = ui->nomePet->text();
@@ -137,12 +132,7 @@ void cadastropet::on_cadastrarButton_2_clicked() {
 }
 
 
-
-
-
-
-
-
+// Função para listar pets
 void cadastropet::on_ListarPets_clicked() {
     QVector<QJsonObject> dados = carregarDados(); // Carrega os dados do JSON
     QString petList;
@@ -174,13 +164,7 @@ void cadastropet::on_ListarPets_clicked() {
 }
 
 
-
-
-
-
-
-
-
+// Atualizar pets
 void cadastropet::on_AtualizarPet_clicked() {
     QString cpfTutor = ui->cpfTutor->text();
 
@@ -227,11 +211,7 @@ void cadastropet::on_AtualizarPet_clicked() {
 }
 
 
-
-
-
-
-
+//Deletar pets
 void cadastropet::on_DeletarPet_clicked() {
     QString cpfTutor = ui->cpfTutor->text();
 
@@ -282,13 +262,7 @@ void cadastropet::on_DeletarPet_clicked() {
 }
 
 
-
-
-
-
-
-
-
+// Voltar para tela cadastro cliente
 void cadastropet::on_clienteButton_2_clicked() {
     cadastrocliente *cadastroScreen = new cadastrocliente(); // Cria a tela de cadastro
     cadastroScreen->show(); // Exibe a tela de cadastro
@@ -296,13 +270,7 @@ void cadastropet::on_clienteButton_2_clicked() {
 }
 
 
-
-
-
-
-
-
-
+// Salvar os dados
 void cadastropet::salvarDados(const QVector<QJsonObject> &dados) {
     QFile file("dados_pet.json"); // Nome do arquivo JSON
     if (!file.open(QIODevice::WriteOnly)) { // Tenta abrir o arquivo para escrita
@@ -319,10 +287,6 @@ void cadastropet::salvarDados(const QVector<QJsonObject> &dados) {
     file.write(doc.toJson()); // Salva o array no arquivo
     file.close(); // Fecha o arquivo
 }
-
-
-
-
 
 
 
@@ -355,7 +319,7 @@ void cadastropet::on_pesquisarButton_2_clicked()
     this->close();
 }
 
-
+// Botão para tela de alterar dados
 void cadastropet::on_telaButton_clicked()
 {
     petalterar *atualizarpetScreen = new petalterar();
@@ -363,7 +327,7 @@ void cadastropet::on_telaButton_clicked()
     this->close();
 }
 
-
+// Voltar para consultas gerais
 void cadastropet::on_menuButton_clicked()
 {
     // Botão voltar Menu
@@ -372,25 +336,23 @@ void cadastropet::on_menuButton_clicked()
     this->close();             // Fecha a janela atual
 }
 
-
+// Botão agendamento
 void cadastropet::on_agendamentoButton_clicked()
 {
-    // Botão Agendar Consulta
     agendamento *agendamentoScreen = new agendamento(); // Cria a tela de agendamento
     agendamentoScreen->show(); // Exibe a tela de agendamento
     this->close();             // Fecha a janela do cadastro pet
 }
 
-
+// Botão consultas do dia
 void cadastropet::on_consultaButton_clicked()
 {
-    //Botão Consultas
     consultasdodia *consultasScreen = new consultasdodia();
     consultasScreen -> show();
     this -> close();
 }
 
-
+// Botão cancelar e limpar os dados
 void cadastropet::on_cancelarButton_2_clicked()
 {
     ui->nomePet->clear();

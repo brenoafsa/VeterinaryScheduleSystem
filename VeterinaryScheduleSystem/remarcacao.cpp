@@ -13,6 +13,7 @@
 #include <QFile>
 #include <QMessageBox>
 
+// Construtor
 remarcacao::remarcacao(QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::remarcacao)
@@ -21,37 +22,36 @@ remarcacao::remarcacao(QWidget *parent)
 
     ui->dateEdit->setCalendarPopup(true); //pop-up de data
 
-    // Definir a data do dia atual ao abrir a tela
     ui->dateEdit->setDate(QDate::currentDate());
 
-    // Populando o comboBox com horários padronizados (7:30 até 19:00, de 30 em 30 minutos)
-    QTime horaInicio(7, 30); // 07:30
-    QTime horaFim(19, 0);    // 19:00
+    QTime horaInicio(7, 30);
+    QTime horaFim(19, 0);
 
     while (horaInicio <= horaFim) {
         ui->comboBox->addItem(horaInicio.toString("HH:mm"));
-        horaInicio = horaInicio.addSecs(30 * 60); // Adiciona 30 minutos
+        horaInicio = horaInicio.addSecs(30 * 60);
     }
 
 
 }
 
+// Destrutor
 remarcacao::~remarcacao()
 {
     delete ui;
 }
 
+// Botão Nova consulta
 void remarcacao::on_novaconsultaButton_clicked()
 {
-    // Botão Nova consulta
     agendamento *agendamentoScreen = new agendamento();
     agendamentoScreen->show(); // Exibe a tela de agendamento
     this->close();          // Fecha a janela atual
 }
 
+// Botão retorna ao menu (consultas gerais)
 void remarcacao::on_menuButton_clicked()
 {
-    // Botão para retornar ao menu
     menu *menuScreen = new menu();
     menuScreen->show();         // Exibe a janela do menu
     this->close();              // Fecha a tela de remarcação
@@ -60,11 +60,11 @@ void remarcacao::on_menuButton_clicked()
 void remarcacao::on_alterarButton_clicked()
 {
     // Lógica para buscar e atualizar consulta (remarcação)
-    QString nomePet = ui->nomePet->text().trimmed().toLower();  // Nome do pet
-    QString cpfTutor = ui->cpfTutor->text().remove(".").remove("-").trimmed();  // CPF do tutor
-    QString dataConsulta = ui->dateEdit->date().toString("dd-MM-yyyy");  // Data da consulta
-    QString horaConsulta = ui->comboBox->currentText();  // Obtém o horário selecionado no ComboBox
-    QString veterinario = ui->veterinarioEdit->text().trimmed();  // Veterinário
+    QString nomePet = ui->nomePet->text().trimmed().toLower();
+    QString cpfTutor = ui->cpfTutor->text().remove(".").remove("-").trimmed();
+    QString dataConsulta = ui->dateEdit->date().toString("dd-MM-yyyy");
+    QString horaConsulta = ui->comboBox->currentText();
+    QString veterinario = ui->veterinarioEdit->text().trimmed();
 
     // Verificação de campos vazios
     if (nomePet.isEmpty() || cpfTutor.isEmpty() || dataConsulta.isEmpty() || horaConsulta.isEmpty() || veterinario.isEmpty()) {
@@ -72,7 +72,7 @@ void remarcacao::on_alterarButton_clicked()
         return;
     }
 
-    // Carregar as consultas existentes
+    // Carrega as consultas existentes
     QFile file("consultas.json");
     if (!file.open(QIODevice::ReadOnly)) {
         showErrorDialog("Erro ao carregar consultas.");
@@ -84,7 +84,7 @@ void remarcacao::on_alterarButton_clicked()
     file.close();
 
     bool consultaEncontrada = false;
-    for (QJsonValueRef consultaValue : consultasArray) {  // Alterado QJsonValue para QJsonValueRef
+    for (QJsonValueRef consultaValue : consultasArray) {
         QJsonObject consulta = consultaValue.toObject();
 
         QString cpfConsulta = consulta["cpf_tutor"].toString();
@@ -97,7 +97,7 @@ void remarcacao::on_alterarButton_clicked()
             consulta["veterinario"] = veterinario;
 
             consultaEncontrada = true;
-            consultaValue = consulta; // Atualiza a referência com os novos dados
+            consultaValue = consulta;
             break;
         }
     }
@@ -125,15 +125,15 @@ void remarcacao::on_alterarButton_clicked()
     }
 }
 
-
+// Botão Consultas do dia
 void remarcacao::on_consultaButton_clicked()
 {
-    // Botão Consultas
     consultasdodia *consultasScreen = new consultasdodia();
     consultasScreen->show();
     this->close();
 }
 
+// Mensagem de ero
 void remarcacao::showErrorDialog(const QString &message)
 {
     QMessageBox errorBox;
@@ -144,7 +144,7 @@ void remarcacao::showErrorDialog(const QString &message)
     errorBox.exec();
 }
 
-
+// Botão cancelar consulta
 void remarcacao::on_cancelarconsultaButton_clicked()
 {
     cancelarconsulta *cancelarconsultaScreen = new cancelarconsulta();
@@ -152,20 +152,19 @@ void remarcacao::on_cancelarconsultaButton_clicked()
     this->close();
 }
 
-
+// Botão cancelar e limpar os dados preenchidos
 void remarcacao::on_cancelarButton_clicked()
 {
     ui->nomePet->clear();
     ui->cpfTutor->clear();
-    ui->dateEdit->setDate(QDate::currentDate()); // Define a data para o dia atual
-    ui->comboBox->setCurrentIndex(0); // Define o primeiro horário (7:30)
+    ui->dateEdit->setDate(QDate::currentDate());
+    ui->comboBox->setCurrentIndex(0);
     ui->veterinarioEdit->clear();
 }
 
-
+// Botão Cadastro Cliente
 void remarcacao::on_pushButton_6_clicked()
 {
-    // Botão Cadastro Cliente
     cadastrocliente *cadastroScreen = new cadastrocliente(); // Cria a tela de cadastro
     cadastroScreen->show(); // Exibe a tela de cadastro
     this->close();

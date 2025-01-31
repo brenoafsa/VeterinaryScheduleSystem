@@ -10,6 +10,7 @@
 #include <QJsonArray>
 #include <QJsonObject>
 
+// Contrutor
 cadastroalterar::cadastroalterar(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::cadastroalterar)
@@ -22,11 +23,13 @@ cadastroalterar::cadastroalterar(QWidget *parent) :
     connect(ui->apagarButton, &QPushButton::clicked, this, &cadastroalterar::on_deletarClienteButton_clicked);
 }
 
+// Destrutor
 cadastroalterar::~cadastroalterar()
 {
     delete ui;
 }
 
+// Botão 'Listar Clientes'
 void cadastroalterar::on_listarClientesButton_clicked()
 {
     QVector<QJsonObject> tutores = carregarTutores();
@@ -58,6 +61,8 @@ void cadastroalterar::on_listarClientesButton_clicked()
     msgBox.exec();
 }
 
+
+// Botão 'Alterar Cliente'
 void cadastroalterar::on_atualizarClienteButton_clicked()
 {
     QString cpf = ui->cpfTutor->text();
@@ -113,6 +118,7 @@ void cadastroalterar::on_atualizarClienteButton_clicked()
     msgBox.exec();
 }
 
+// Botão 'Deletar Cliente'
 void cadastroalterar::on_deletarClienteButton_clicked()
 {
     QString cpf = ui->cpfTutor->text();
@@ -206,6 +212,7 @@ void cadastroalterar::salvarTutores(const QVector<QJsonObject> &tutores)
     arquivo.close();
 }
 
+// Botão para exibia a tela das consultas do dia
 void cadastroalterar::on_consultaButton_clicked()
 {
     //Botão Consultas
@@ -214,15 +221,15 @@ void cadastroalterar::on_consultaButton_clicked()
     this -> close();
 }
 
+// Botão Cadastro Cliente
 void cadastroalterar::on_pushButton_6_clicked()
 {
-    // Botão Cadastro Cliente
     cadastrocliente *cadastroclienteScreen = new cadastrocliente(); // Cria a tela de cadastro
-    cadastroclienteScreen->show(); // Exibe a tela de cadastro
+    cadastroclienteScreen->show();      // Exibe a tela de cadastro
     this->close();          // Fecha a janela do menu
 }
 
-
+// Limpar os dados ao clicar em cancelar
 void cadastroalterar::on_cancelarButton_clicked()
 {
     ui->cpfTutor->clear();
@@ -232,19 +239,19 @@ void cadastroalterar::on_cancelarButton_clicked()
     ui->telefoneTutor->clear();
 }
 
-
+// Botão consultas gerais (retorna ao menu principal)
 void cadastroalterar::on_menuButton_clicked()
 {
-    menu *menuScreen = new menu(); // Cria a tela de cadastro
-    menuScreen->show(); // Exibe a tela de cadastro
+    menu *menuScreen = new menu(); // Cria a tela de consultas gerais
+    menuScreen->show(); // Exibe a tela de consultas gerais
     this->close();
 }
 
-
+// Botão agendamento
 void cadastroalterar::on_agendamentoButton_clicked()
 {
-    agendamento *agendamentoScreen = new agendamento(); // Cria a tela de cadastro
-    agendamentoScreen->show(); // Exibe a tela de cadastro
+    agendamento *agendamentoScreen = new agendamento(); // Cria a tela de agendamento
+    agendamentoScreen->show(); // Exibe a tela de agendamento
     this->close();
 }
 

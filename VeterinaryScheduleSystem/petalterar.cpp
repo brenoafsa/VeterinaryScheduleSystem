@@ -10,6 +10,7 @@
 #include <QJsonArray>
 #include <QJsonObject>
 
+// Construtor
 petalterar::petalterar(QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::petalterar)
@@ -18,11 +19,13 @@ petalterar::petalterar(QWidget *parent)
 
 }
 
+// Destrutor
 petalterar::~petalterar()
 {
     delete ui;
 }
 
+// Botão para listar todos os pets cadastrados
 void petalterar::on_listarButton_clicked()
 {
     QVector<QJsonObject> pets = carregarPets();
@@ -55,6 +58,7 @@ void petalterar::on_listarButton_clicked()
     msgBox.exec();
 }
 
+// Botão para alterar os dados de um pet
 void petalterar::on_alterarButton_clicked()
 {
     QString cpfTutor = ui->cpfTutor->text();
@@ -111,6 +115,7 @@ void petalterar::on_alterarButton_clicked()
     msgBox.exec();
 }
 
+// Botão para deletar um pet
 void petalterar::on_apagarButton_clicked()
 {
     QString cpfTutor = ui->cpfTutor->text();
@@ -161,6 +166,7 @@ void petalterar::on_apagarButton_clicked()
     msgBox.exec();
 }
 
+// Carrega os pets do arquivo JSON
 QVector<QJsonObject> petalterar::carregarPets()
 {
     QFile arquivo("dados_pet.json"); // Alterado para usar o novo arquivo
@@ -182,6 +188,7 @@ QVector<QJsonObject> petalterar::carregarPets()
 }
 
 
+// Salva os pets no arquivo JSON
 void petalterar::salvarPets(const QVector<QJsonObject> &pets)
 {
     QFile arquivo("dados_pet.json"); // Alterado para usar o novo arquivo
@@ -201,7 +208,7 @@ void petalterar::salvarPets(const QVector<QJsonObject> &pets)
     arquivo.close();
 }
 
-
+// Botão para voltar para consultas gerais
 void petalterar::on_menuButton_clicked()
 {
     menu *menuScreen = new menu();
@@ -209,25 +216,23 @@ void petalterar::on_menuButton_clicked()
     this-> close();
 }
 
-
+// Botão consultas do dia
 void petalterar::on_consultaButton_clicked()
 {
-    //Botão Consultas
     consultasdodia *consultasScreen = new consultasdodia();
     consultasScreen -> show();
     this -> close();
 }
 
-
+// Botão agendamento
 void petalterar::on_agendamentoButton_clicked()
 {
-    // Botão Agendar Consulta
     agendamento *agendamentoScreen = new agendamento(); // Cria a tela de agendamento
     agendamentoScreen->show(); // Exibe a tela de agendamento
-    this->close();             // Fecha a janela do menu
+    this->close();             // Fecha a janela atual
 }
 
-
+// Botão cancelar e limpar os dados preenchidos
 void petalterar::on_cancelarButton_2_clicked()
 {
     ui->corPet->clear();
@@ -240,12 +245,11 @@ void petalterar::on_cancelarButton_2_clicked()
 
 }
 
-
+// Botão cadastro cliente
 void petalterar::on_pushButton_6_clicked()
 {
-    // Botão Cadastro Cliente
     cadastrocliente *cadastroScreen = new cadastrocliente(); // Cria a tela de cadastro
     cadastroScreen->show(); // Exibe a tela de cadastro
-    this->close();          // Fecha a janela do menu
+    this->close();          // Fecha a janela atual
 }
 
