@@ -81,7 +81,7 @@ Certifique-se de que seu computador atende aos seguintes requisitos:
 - No Qt Creator, vá para a aba Projects.
 - Certifique-se de que o kit de compilação está configurado para Desktop (Qt 6.8 com MinGW).
 
-7- Compilar o Projeto
+7. Compilar o Projeto
 
 - No menu superior, clique em Build → Build Project.
 - Certifique-se de que o projeto compila sem erros.
