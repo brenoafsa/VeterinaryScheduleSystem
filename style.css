@@ -1,0 +1,120 @@
+/* Reset some default browser styles */
+body, h1, h2, h3, h4, h5, h6, p, ul, ol, li, a {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Set a default font and background color */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Style headings */
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 10px;
+}
+
+/* Style paragraphs */
+p {
+    margin-bottom: 15px;
+}
+
+/* Style links */
+a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Style lists */
+ul, ol {
+    margin-bottom: 15px;
+    padding-left: 20px;
+}
+
+/* Add some basic layout styles */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header, .footer {
+    background-color: #9B88BF; /* Roxo escuro */
+    color: #fff;
+    padding: 20px; /* Ajuste do padding para adicionar espaço interno */
+    text-align: center;
+    position: static;
+    z-index: 2; /* Ajuste do z-index */
+    width: 800px; /* Ajuste da largura para não ficar atrás da barra lateral */
+    margin-left: 460px; /* Espaço para a barra lateral */
+    margin-right: 200px; /* Ajuste da margem direita */
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border-radius: 20px;
+    box-shadow: 10px 10px  5px rgba(0, 0, 0, 0.2);
+}
+    
+
+
+.main {
+    padding: 25px;
+    background-color: #fff;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-left: 240px; /* Espaço para a barra lateral */
+}
+
+/* Estilo para a barra lateral */
+aside {
+    width: 200px;
+    background-color: #C4B4E0; /* Roxo claro 2 */
+    color: #fff;
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    overflow: auto;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    z-index: 1; /* Ajuste do z-index */
+    border-radius: 10px;
+}
+
+/* Estilo para os links da barra lateral */
+aside a {
+    display: block;
+    color: #fff;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+aside a:hover {
+    background-color: #9B88BF; /* Roxo escuro */
+}
+
+/* Estilo para o conteúdo principal */
+main {
+    margin-left: 270px; /* Espaço para a barra lateral */
+    padding: 20px;
+}
+
+.responsive-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 100px;
+}
