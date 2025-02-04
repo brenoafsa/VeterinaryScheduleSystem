@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SaúdePet</title>
+    <link rel="icon" type="image/x-icon" href="icone.png">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <h1>    
+            Arquitetura      
+        </h1>
+    </header>
+
+    <aside>
+        <h2>Menu</h2>
+        <ul>
+            <li><a href="index.html">Visão Geral</a></li>
+            <li><a href="arquitetura.html">Arquitetura</a></li>
+            <li><a href="modelagem.html">Modelagem O.O</a></li>
+            <li><a href="diagramas.html">Diagramas</a></li>
+            <li><a href="funcionalidades.html">Funcionalidades</a></li>
+        </ul>
+    </aside>
+
+    <main class="main">
+        <section id="arquitetura sistema">
+            <h2>Arquitetura do Sistema</h2>
+            <p>O sistema segue a arquitetura MVC (Model-View-Controller), que permite uma clara separação entre a interface, a lógica de negócio e o gerenciamento dos dados. O Modelo (Model) representa as classes e estruturas de dados, como consultas, tutores e pets. A Visão (View) é responsável pela interface com o usuário, enquanto o Controlador (Controller) gerencia as interações entre a interface e os dados.<br>
+            A implementação foi modularizada utilizando arquivos de cabeçalho (.h) e arquivos de implementação (.cpp). As classes foram organizadas conforme os módulos principais: cadastro de clientes, agendamentos e consultas. O uso dessa estrutura melhora a manutenção e expansibilidade do sistema.<br>
+            A interface gráfica foi criada com o Qt Designer, que gera arquivos .ui contendo descrições visuais de botões, campos de texto e demais componentes. Esses arquivos são integrados ao código C++ para criar a interatividade necessária no sistema.</p>
+        </section>
+
+        <section id="tecnologias">
+            <h2>Tecnologias Utilizadas</h2>
+            <p>O sistema foi desenvolvido utilizando as seguintes tecnologias:</p>
+            <ul>
+                <li>Linguagem de Programação: C++</li>
+                <li>Framework de Interface: Qt Framework</li>
+                <li>Armazenamento de Dados: JSON</li>
+                <li>Ferramenta de Interface: Qt Designer</li>
+            </ul>
+            <p>O Qt Framework é uma poderosa biblioteca para desenvolvimento de interfaces gráficas, oferecendo suporte para a interação entre elementos visuais e a lógica do sistema. Além disso, ele permite manipulação de arquivos JSON, criação de janelas e interatividade de elementos na tela.<br>
+            Os dados são armazenados localmente utilizando arquivos JSON, escolhidos por serem leves, fáceis de manipular e não exigirem um banco de dados relacional. Isso permite maior simplicidade e portabilidade ao sistema, garantindo que informações como consultas, tutores e pets sejam acessadas rapidamente.</p>
+        </section>
+
+    
+    </main>
+    
+    <footer class="footer">
+        <p>&copy; 2025 Projeto em Trio. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>

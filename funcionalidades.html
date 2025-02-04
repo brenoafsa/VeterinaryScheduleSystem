@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SaúdePet</title>
+    <link rel="icon" type="image/x-icon" href="icone.png">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <h1>
+           Funcionalidades
+        </h1>
+    </header>
+
+    <aside>
+        <h2>Menu</h2>
+        <ul>
+            <li><a href="index.html">Visão Geral</a></li>
+            <li><a href="arquitetura.html">Arquitetura</a></li>
+            <li><a href="modelagem.html">Modelagem O.O</a></li>
+            <li><a href="diagramas.html">Diagramas</a></li>
+            <li><a href="funcionalidades.html">Funcionalidades</a></li>
+        </ul>
+    </aside>
+
+    <main class="main">
+
+        <section id="tela login">
+            <h2>Tela de Login</h2>
+            <p>A tela de login permite que o usuário insira suas credenciais para acessar o sistema. Ela verifica as credenciais fornecidas e, se forem válidas, redireciona o usuário para a tela principal do sistema.</p>
+
+            <img src="resources/login.png" alt="Tela de Login" class="responsive-image">
+        </section>
+
+
+        <section id="cadastro tutor">
+            <h2>Tela de Cadastro de Tutor</h2>
+            <p>A tela de cadastro de tutor permite o cadastro de novos tutores, incluindo informações como nome, CPF, email, endereço e telefone. Os dados são armazenados em um arquivo JSON para persistência.</p>
+            <img src="resources/cadastrocliente.png" alt="cadastro de tutor" class="responsive-image">
+        </section>
+
+
+        <section id="cadastro pet">
+            <h2>Tela de Cadastro de Pet</h2>
+            <p>A tela de cadastro de pet permite o cadastro de novos pets, incluindo informações como nome, espécie, raça, idade, cor e CPF do tutor. Os dados dos pets também são armazenados em um arquivo JSON.</p>
+            <img src="resources/cadastropet.png" alt="cadastro de pet" class="responsive-image">
+        </section>
+
+
+        <section id="agendamento consulta">
+            <h2>Tela de Agendamento de Consulta</h2>
+            <p>A tela de agendamento de consulta permite o agendamento de novas consultas, incluindo informações como nome do pet, CPF do tutor, data, hora e veterinário responsável. As consultas são salvas em um arquivo JSON.</p>
+            <img src="resources/agendamento.png" alt="agendamento de consulta" class="responsive-image">
+        </section>
+
+
+        <section id="Tela de cancelamento de Consulta">
+            <h2>Tela de Cancelamento de Consulta</h2>
+            <p>A tela de cancelamento de consulta permite o cancelamento de consultas existentes. As consultas canceladas são removidas do arquivo JSON de consultas.</p>
+            <img src="resources/cancelamento.png" alt="cancelamento de consulta" class="responsive-image">
+        </section>
+
+
+    
+        <section id="Tela de Consultas do Dia">
+            <h2>Tela de Consultas do Dia</h2>
+            <p>A tela de consultas do dia exibe as consultas agendadas para o dia atual. Ela carrega os dados do arquivo JSON de consultas e exibe as consultas do dia na interface.</p>
+            <img src="resources/consultasdodia.png" alt="consultas do dia" class="responsive-image">
+        </section>
+
+
+        <section id="gerenciamento dos agendamentos e usuários">
+            <h2>Como o sistema gerencia os agendamentos e usuários</h2>
+            <p>O sistema gerencia os agendamentos e usuários utilizando arquivos JSON para armazenamento de dados. A classe Database é responsável por gerenciar o acesso aos dados, fornecendo métodos para adicionar, recuperar e excluir dados de tutores, pets e consultas.</p>
+
+        </section>
+
+
+        <section id="Gerenciamento de Tutores">
+            <h2>Gerenciamento de Tutores</h2>
+            <p>Os tutores são gerenciados pelas classes cadastrocliente e cadastroalterar. A classe cadastrocliente permite o cadastro de novos tutores, enquanto a classe cadastroalterar permite a atualização e exclusão de dados de tutores. Os dados dos tutores são armazenados em um arquivo JSON, que é carregado e salvo conforme necessário.</p>
+            <img src="resources/alterarcliente.png" alt="gerenciamento de tutores" class="responsive-image">
+
+        </section>
+
+
+
+
+        <section id="Gerenciamento de Pets">
+            <h2>Gerenciamento de Pets</h2>
+            <p>Os pets são gerenciados pelas classes cadastropet e petalterar. A classe cadastropet permite o cadastro, listagem, atualização e exclusão de pets, enquanto a classe petalterar permite a atualização e exclusão de dados de pets existentes. Os dados dos pets são armazenados em um arquivo JSON, que é carregado e salvo conforme necessário.</p>
+            <img src="resources/alterarpet.png" alt="gerenciamento de pets" class="responsive-image">
+
+        </section>
+
+
+        <section id="Gerenciamento de Consultas">
+            <h2>Gerenciamento de Consultas</h2>
+            <p>As consultas são gerenciadas pelas classes agendamento, remarcacao e cancelarconsulta. A classe agendamento permite o agendamento de novas consultas, a classe remarcacao permite a remarcação de consultas existentes, e a classe cancelarconsulta permite o cancelamento de consultas. As consultas são armazenadas em um arquivo JSON, que é carregado e salvo conforme necessário.</p>
+            <img src="resources/agendamento.png" alt="agendamento de consulta" class="responsive-image">
+            <img src="resources/remarcarconsulta.png" alt="remarcação de consulta" class="responsive-image">
+            <img src="resources/cancelamento.png" alt="cancelamento de consulta" class="responsive-image">
+        </section>
+
+
+        <section id="Exibição de Consultas do Dia">
+            <h2>Exibição de Consultas do Dia</h2>
+            <p>A classe consultasdodia é responsável por carregar e exibir as consultas agendadas para o dia atual. Ela carrega os dados do arquivo JSON de consultas e exibe as consultas do dia na interface.</p>
+
+            <img src="resources/consultasdodia.png" alt="consultas do dia" class="responsive-image">
+        </section>
+
+
+    </main>
+    
+    <footer class="footer">
+        <p>&copy; 2025 Projeto em Trio. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>

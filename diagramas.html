@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SaúdePet</title>
+    <link rel="icon" type="image/x-icon" href="icone.png">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <h1>
+            Diagramas
+        </h1>
+    </header>
+
+    <aside>
+        <h2>Menu</h2>
+        <ul>
+            <li><a href="index.html">Visão Geral</a></li>
+            <li><a href="arquitetura.html">Arquitetura</a></li>
+            <li><a href="modelagem.html">Modelagem O.O</a></li>
+            <li><a href="diagramas.html">Diagramas</a></li>
+            <li><a href="funcionalidades.html">Funcionalidades</a></li>
+        </ul>
+    </aside>
+
+    <main class="main">
+        <section id="intro">
+            <h2>Diagrama de Classes: Representando a Estrutura do Sistema</h2>
+            <p>O diagrama de classes apresentado ilustra a estrutura estática do sistema de agendamento veterinário, destacando as classes principais, seus atributos, métodos e as relações entre elas. Aqui estão os detalhes de cada elemento:</p>
+        </section>
+
+        <section id="Diagrama de Classes">
+            <img src="resources/diagrama_classes.png" alt="Diagrama de Classes" class="responsive-image">
+        </section>
+
+
+        <section id="detalhes">
+            <h3>Classes Principais e Suas Responsabilidades</h3>
+            <h4>Database:</h4>
+            <p>Responsável pelo armazenamento e manipulação de dados dos tutores, pets e consultas. Implementada como um singleton para garantir que apenas uma instância exista no sistema. Métodos incluem adição, exclusão, recuperação de dados e manipulação de pets.</p>
+            
+            <h4>MainWindow:</h4>
+            <p>Gerencia a interface principal e o fluxo inicial do sistema, como a autenticação do usuário. Exibe o menu principal e direciona para outras telas.</p>
+            
+            <h4>menu:</h4>
+            <p>Controla a navegação entre as telas de funcionalidades principais, como cadastro, agendamentos e exibição de consultas.</p>
+            
+            <h4>CadastroCliente:</h4>
+            <p>Permite a criação, atualização e exclusão de registros de tutores. Integra a manipulação de dados com a classe Database.</p>
+            
+            <h4>CadastroPet:</h4>
+            <p>Gerencia o cadastro e manipulação dos registros de pets, vinculando-os aos tutores existentes.</p>
+            
+            <h4>Agendamento:</h4>
+            <p>Facilita o agendamento de novas consultas e organiza a exibição dessas informações.</p>
+            
+            <h4>Remarcacao e CancelarConsulta:</h4>
+            <p>Cuidam, respectivamente, da remarcação e do cancelamento de consultas existentes, sempre sincronizando com os dados armazenados.</p>
+            
+            <h4>ConsultasDoDia:</h4>
+            <p>Exibe as consultas agendadas para o dia atual, auxiliando no gerenciamento diário da clínica.</p>
+
+            <br
+        </section>
+
+
+        <section id="intro2">
+            <h2>Diagrama de Casos de Uso: Ilustrando Interações</h2>
+            <p>O diagrama de casos de uso apresenta as principais funcionalidades do sistema e como elas estão organizadas. O ator principal (Administrador) interage com o sistema para realizar operações como login, cadastro de clientes e pets, agendamento, remarcação e cancelamento de consultas, entre outras. Isso fornece uma visão clara de como o sistema atende às necessidades do usuário.</p>
+        </section>
+        
+
+        <section id="Diagrama de Casos de Uso">
+            <img src="resources/diagrama_casos.png" alt="Diagrama de Classes" class="responsive-image">
+        </section>
+        
+    </main>
+    
+    <footer class="footer">
+        <p>&copy; 2025 Projeto em Trio. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>

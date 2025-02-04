@@ -1,12 +1,66 @@
 <!DOCTYPE html>
-<html lang="Pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Saúde Pet</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>SaúdePet</title>
+    <link rel="icon" type="image/x-icon" href="icone.png">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>SaúdePet: Sistema de Agendamento de Consultas Veteronárias</h1>
+    <header class="header">
+        <h1>
+            SaúdePet: Sistema de Agendamento de Consultas Veterinárias
+        </h1>
+    </header>
+
+    <aside>
+        <h2>Menu</h2>
+        <ul>
+            <li><a href="index.html">Visão Geral</a></li>
+            <li><a href="arquitetura.html">Arquitetura</a></li>
+            <li><a href="modelagem.html">Modelagem O.O</a></li>
+            <li><a href="diagramas.html">Diagramas</a></li>
+            <li><a href="funcionalidades.html">Funcionalidades</a></li>
+        </ul>
+    </aside>
+
+    <main class="main">
+        <section id="intro">
+            <h2>Introdução</h2>
+            <p>O sistema de agendamento veterinário otimiza a gestão de consultas em clínicas veterinárias, substituindo processos manuais e evitando erros de agendamento. Ele permite o cadastro de tutores e pets, facilita o agendamento, remarcação e cancelamento de consultas, e possibilita a visualização organizada dos atendimentos ao longo dos meses.</p>
+        </section>
+
+        <section id="publico">
+            <h2>Público-Alvo</h2>
+            <p>O sistema atende:</p>
+            <ul>
+                <li>Recepcionistas: Facilitando o gerenciamento de consultas.</li>
+                <li>Administradores: Melhorando o controle e organização da clínica.</li>
+                <li>Veterinários: Permitindo uma agenda mais eficiente.</li>
+                <li>Tutores de pets: Garantindo um atendimento organizado e ágil.</li>
+            </ul>
+        </section>
+
+        <section id="objetivo">
+            <h2>Objetivo geral do sistema</h2>
+            <p>Fornecer uma solução eficiente e intuitiva para o gerenciamento de consultas, otimizando o fluxo de trabalho e garantindo um atendimento de qualidade.<br>Os principais propósitos incluem:</p>
+            <ul>
+                <li>Facilitar o agendamento: Permitir agendamentos, remarcações e cancelamentos sem erros.</li>
+                <li>Melhorar a organização da clínica: Proporcionar uma rotina mais eficiente.</li>
+                <li>Interface intuitiva: Desenvolvida com Qt para facilidade de uso..</li>
+                <li>Armazenamento seguro: Utiliza arquivos JSON para preservar dados.</li>
+            </ul>
+        </section>
+
+        <section id="Atribuições">
+            <h2>Atribuições</h2>
+            <p>As atribuições de cada paticipante está descrita nos commits, presente no <a href="https://github.com/brenoafsa/VeterinaryScheduleSystem/tree/Pages">repositório</a>.</p>
+        </section>
+    </main>
+    
+    <footer class="footer">
+        <p>&copy; 2025 Projeto em Trio. Todos os direitos reservados.</p>
+    </footer>
 </body>
 </html>
